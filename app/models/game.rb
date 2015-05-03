@@ -20,10 +20,17 @@ class Game < ActiveRecord::Base
 
 	# Methods
 
-	def self.waiting_on(user_id)
+	def self.waiting_on_user(user_id)
 		user_games = Game.joins(:rankings).users_games(user_id).accepted
 		user_games.reject do |game|
 			game.rankings.any? {|r| r.user_id == user_id}
+		end
+	end
+
+	def self.waiting_on_other(user_id)
+		user_games = Game.joins(:rankings).users_games(user_id).accepted
+		user_games.reject do |game|
+			game.rankings.any? {|r| r.user_id != user_id}
 		end
 	end
 

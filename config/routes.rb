@@ -9,7 +9,20 @@ Rails.application.routes.draw do
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'logout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   
-  # root "dashboard"
+  root 'home#index'
+
+  get 'home' => 'home#index', as: :home
+
+  get 'games/new' => 'games#new'
+  post 'games/new' => 'games#create'
+
+  get 'games/:id/photo' => 'image#new'
+  post 'games/:id/photo' => 'image#create'
+
+  get 'games/:id/palette' => 'ranking#new'
+  post 'games/:id/palette' => 'ranking#create'
+
+  get 'games/:id/score' => 'result#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

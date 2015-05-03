@@ -8,9 +8,9 @@ class Ranking < ActiveRecord::Base
 	# Scopes
 
 	# Validate
-	
+
 	# very insecure, should store pictures in a more protected place
-	`color_quant #{RAILS_ROOT}/assets/images/uploaded/users/#{user_id}/#{game_id}* #{segmentation_num}`
+	`color_quant #{RAILS_ROOT}/uploads/images/#{game_id}* #{segmentation_num}`
 
 	def getRGB(color)
 	    red = ((color & 0xff0000) >> 16)
