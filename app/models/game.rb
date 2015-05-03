@@ -15,19 +15,19 @@ class Game < ActiveRecord::Base
 	scope :pending, where(is_accepted: false)
 	scope :by_date, order('created_at DESC')
 	scope :users_games, lambda {|user_id| where("from_user_id = :user OR to_user_id = :user",
-																							{ user_id: user_id })}
+																							{ user: user_id })}
 
 	# Methods
 
 	def self.waiting_on(user_id)
-		user_games = Game.joins(:rankings).users_games(user_id).accepted
+		user_games = Game.joins(:rankings).users_games(user_id).accepted.all
 		user_games.reject do |game|
-			game.rankings.inject(false) {|r, e| r || e.user_id == user_id}
+			game.rankings.any? {|r| r.user_id == user_id}
 		end
 	end
 
 	def self.completed(user_id)
-		user_games = Game.joins(:rankings).users_games(user_id).accepted
+		user_games = Game.joins(:rankings).users_games(user_id).accepted.all
 		user_games.reject{ |game| game.rankings.size < 2 }
 		end
 	end

@@ -8,6 +8,9 @@ class Ranking < ActiveRecord::Base
 	# Scopes
 
 	# Validate
+	
+	# very insecure, should store pictures in a more protected place
+	`color_quant #{RAILS_ROOT}/assets/images/uploaded/users/#{user_id}/#{game_id}* #{segmentation_num}`
 
 	def getRGB(color)
 	    red = ((color & 0xff0000) >> 16)
@@ -33,5 +36,5 @@ class Ranking < ActiveRecord::Base
 	color2 = 0xcbbc5f
 
 	puts colorDistance(color1, color2).to_s()
-	
+
 end
