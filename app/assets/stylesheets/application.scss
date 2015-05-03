@@ -25,6 +25,10 @@ body {
   font-size: 10px;
 }
 
+a:hover {
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
 nav {
   ul {
     list-style-type: none;
@@ -41,8 +45,14 @@ nav {
       rgba(0, 0, 0, 0.2));
     background-color: #fff;
     border: rgba(0, 0, 0, 0.2);
-    color: #111;
     @include border-radius(50px);
+  }
+  a:link, a:visited {
+    color: #aaa;
+    @include transition(all, 1s)
+  }
+  a:hover, a:active {
+    color: #888;
   }
   .previous {
     padding: 13px 23px 7px 17px;
@@ -177,20 +187,35 @@ body.home.index {
 
 body.games.new {
   background-color: rgb(76, 72, 127);
-  .friends {
-    
-  }
-  .friends-list {
-    background-color: red;
+  section {
+    background-color: #4c487f;
+    height: 40em;
+    position: fixed;
+      top: 0;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    z-index: 100;
+    figure {
+      color: #fff;
+      display: block;
+      font-weight: 300;
+      text-align: center;
+      img {
+        margin: 3em auto 1em;
+        max-height: 20em;
+      }
+      p {
+        font-size: 1.8em;
+        margin: 0.5em auto 0;
+      }
+    }
+  }
+  .friends {
+    margin-top: 40em;
   }
   .friends-list {
     list-style-type: none;
-    margin: 0 0 0 0;
+    margin: 0;
     padding: 0;
-    position: relative;
     width: 100%;
     li {
       float: left;

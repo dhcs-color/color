@@ -11,17 +11,23 @@
   $next = 'games/photo'
 %>
 
-<nav>
-  <ul>
-    <li class="ss-icon previous">
-      <%= link_to "previous", "/" %>
-    </li>
-    <li class="ss-icon next">
-      <%= link_to "next", "/" %>
-    </li>
-  </ul>
-  <h1>Choose a challenger</h1>
-</nav>
+<section>
+  <nav>
+    <ul>
+      <li class="ss-icon previous">
+        <%= link_to "previous", "/" %>
+      </li>
+      <li class="ss-icon next">
+        <%= link_to "next", "photo" %>
+      </li>
+    </ul>
+    <h1>Choose a challenger</h1>
+    <figure>
+      <%= image_tag 'placeholder-friend.png' %>
+      <p>Adaline Yu</p>
+    </figure>
+  </nav>
+</section>
 
 <div class="friends">
   <ul class="friends-list large">
@@ -30,10 +36,11 @@
         <a href="">
           <%= image_tag  'placeholder-friend.png' %>
         </a>
+      </li>
     <% end %>
   </ul>
   <ul class="friends-list small">
-    <% for i in 1..78 %>
+    <% for i in 1..88 %>
       <li>
         <a href="">
           <%= image_tag  'placeholder-friend.png' %>
