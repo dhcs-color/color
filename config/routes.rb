@@ -1,11 +1,35 @@
 Rails.application.routes.draw do
+
   resources :results
   resources :rankings
   resources :games
+<<<<<<< HEAD
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'logout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
+=======
+  resources :images, only: [:new, :create]
+
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'logout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+  
+  root 'home#index'
+
+  get 'home' => 'home#index', as: :home
+
+  get 'games/new' => 'games#new'
+  post 'games/new' => 'games#create'
+
+  get 'games/:id/photo' => 'image#new'
+  post 'games/:id/photo' => 'image#create'
+
+  get 'games/:id/palette' => 'ranking#new'
+  post 'games/:id/palette' => 'ranking#create'
+
+  get 'games/:id/score' => 'result#show'
+>>>>>>> c9c0e0fb1d352ce9d09f0cdb55eaa28b18b94c0e
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

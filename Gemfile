@@ -37,6 +37,10 @@ gem 'omniauth-facebook'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'carrierwave'
+
+gem 'simple_form'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'debugger'

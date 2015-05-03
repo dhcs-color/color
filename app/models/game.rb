@@ -1,14 +1,15 @@
 class Game < ActiveRecord::Base
-	attr_accessible :game_id, :from_user_id, :to_user_id, :image_path, :is_accepted
+	attr_accessible :game_id, :from_user_id, :to_user_id, :is_accepted
 
 	# Relationships
 	belongs_to :from_user, class_name: "User", foreign_key: "from_user_id"
 	belongs_to :to_user, class_name: "User", foreign_key: "to_user_id"
+	has_one :image
 	has_many :rankings
 	has_many :results, :through => :rankings 
 
 	# Validations
-	validates_presence_of :game_id, :from_user_id, :to_user_id, :image_path, :is_accepted
+	validates_presence_of :game_id, :from_user_id, :to_user_id, :is_accepted
 
 	# Scopes
 	scope :acccepted, where(is_accepted: true)
@@ -19,16 +20,24 @@ class Game < ActiveRecord::Base
 
 	# Methods
 
-	def self.waiting_on(user_id)
-		user_games = Game.joins(:rankings).users_games(user_id).accepted.all
+	def self.waiting_on_user(user_id)
+		user_games = Game.joins(:rankings).users_games(user_id).accepted
 		user_games.reject do |game|
 			game.rankings.any? {|r| r.user_id == user_id}
 		end
 	end
 
+	def self.waiting_on_other(user_id)
+		user_games = Game.joins(:rankings).users_games(user_id).accepted
+		user_games.reject do |game|
+			game.rankings.any? {|r| r.user_id != user_id}
+		end
+	end
+
 	def self.completed(user_id)
-		user_games = Game.joins(:rankings).users_games(user_id).accepted.all
+		user_games = Game.joins(:rankings).users_games(user_id).accepted
 		user_games.reject{ |game| game.rankings.size < 2 }
 		end
 	end
+
 end
