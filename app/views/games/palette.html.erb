@@ -1,0 +1,34 @@
+<!-- +INFO NEED THE PHOTO ASSOCIATED WITH GAME -->
+
+<!-- +TODO ADD COLOR PALETTE JS AND CSS ELSEWHERE AND HTML HERE -->
+<!-- +TODO SEND COLOR PALETTE (4 COLORS) TO SERVER -->
+
+<!-- +LINK BACK TO CHOOSE A DIFFERENT PHOTO? MAYBE?? -->
+<!-- +LINK FORWARD TO SUBMIT PALETTE, ONLY IF 4 COLORS ARE CHOSEN -->
+
+<nav class="arrows">
+  <ul>
+    <li class="ss-icon previous">
+      <%= link_to "previous", "photo" %>
+    </li>
+    <!-- <li class="ss-icon next">
+      if it's not ready to score, link to a 'send' page
+      <%= link_to "next", "score" %>
+    </li> -->
+  </ul>
+</nav>
+
+<div class="image">
+  <canvas id="photo">
+  </canvas>
+</div>
+
+<div id="your-colors">
+  <ul class="palette">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+

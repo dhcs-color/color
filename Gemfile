@@ -7,6 +7,10 @@ gem 'rails', '4.2.1'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Use Compass to help with writing SCSS
+gem 'compass-rails'
+# Use Foundation for base styling
+gem 'foundation-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

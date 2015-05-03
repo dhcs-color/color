@@ -1,0 +1,39 @@
+<!-- +TODO SET UP CARRIERWAVE TO SAVE PHOTO -->
+
+<!-- +LINK BACKWARDS TO NEW.HTML.ERB TO PICK DIFF FRIEND -->
+
+<%  
+  $name = 'Adaline Yu'
+  $profile_picture =  'placeholder-you.png'
+  $friend_name
+  $friend_profile_picture = 'placeholder-friend.png'
+  $next = 'games/new'
+%>
+
+<!-- @@@ -->
+
+<nav class="arrows">
+  <ul>
+    <li class="ss-icon previous">
+      <%= link_to "previous", "confirm" %>
+    </li>
+    <!-- <li class="ss-icon next">
+      <%= link_to "navigateright", "confirm" %>
+    </li> -->
+  </ul>
+</nav>
+
+<div class="tutorial">
+  <h2>You vs Friend</h2>
+  <p>It's your turn to take a picture!</p>
+</div>
+
+<div class="camera-icon">
+  <!-- on click ask for camera permission -->
+  <i class="ss-icon">camera</i>
+</div>
+
+<form action="palette" method="post" enctype="multipart/form-data">
+  <input class="upload button secondary" type="file" accept="image/*" capture>
+  <input class="button" type="submit" value="Use this!">
+</form>
