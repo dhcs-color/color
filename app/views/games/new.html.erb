@@ -7,34 +7,46 @@
 
 <%
   $profile_picture =  'placeholder-you.png'
+  $prev = 'dashboard'
   $next = 'games/photo'
 %>
 
-<h1>New Game</h1>
+<nav>
+  <ul>
+    <li class="ss-icon previous">
+      <%= link_to "previous", "/" %>
+    </li>
+    <li class="ss-icon next">
+      <%= link_to "next", "/" %>
+    </li>
+  </ul>
+  <h1>Choose a challenger</h1>
+</nav>
 
-<ul class="friends-list">
-  <% for i in 0..13 %>
+<ul class="friends-list large">
+  <% for i in 1..8 %>
     <li>
-      <% link_to 'confirm' do %>
+      <!-- < % link_to 'confirm' do %> -->
         <figure>
-          <%= image_tag  $profile_picture %>
+          <%= image_tag  'placeholder-friend.png' %>
         </figure>
-      <% end %>
+      <!-- < % end %> -->
     </li>
   <% end %>
 </ul>
 
-<hr>
+<ul class="friends-list small">
+  <% for i in 1..8 %>
+    <li>
+      <!-- < % link_to 'confirm' do %> -->
+        <figure>
+          <%= image_tag  'placeholder-friend.png' %>
+        </figure>
+      <!-- < % end %> -->
+    </li>
+  <% end %>
+</ul>
 
-<div class="prompt">
-  <div class="you">
-    <%= image_tag 'you.png' %>
-  </div>
-  <div class="instructions">
-    Choose a friend to play with
-  </div>
-</div>
+<!-- < % = render 'form' %> -->
 
-<%= render 'form' %>
-
-<%= link_to 'Back', games_path %>
+<!-- < % = link_to 'Back', games_path %> -->

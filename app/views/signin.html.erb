@@ -2,15 +2,15 @@
 
 <div id="container">
 
-<h1 class="welcome">Rothko</h1>
+<h1>Rothko</h1>
 <div>
-  <p class="intro">Rothko is a color game you can play with friends. Share photos and compete to pick the best colors out of your world!</p>
-  <a href="/">
+  <p>Rothko is a color game you can play with friends. Share photos and compete to pick the best colors out of your world!</p>
+  <%= link_to "/auth/facebook", id: "sign_in" do %>
     <button>
       <i class="ss-icon">facebook</i>
       <span>Sign up</span>
     </button>
-  </a>
+  <% end %>
 </div>
 
 </div>

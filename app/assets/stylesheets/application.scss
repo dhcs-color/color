@@ -14,4 +14,173 @@
  *= require_self
  */
 
-@import "foundation_and_overrides";
+@import "foundation";
+@import "compass";
+@import "type/ss-social-regular";
+@import "type/ss-standard";
+
+
+body {
+  color: #333;
+  font-size: 10px;
+}
+
+nav {
+  ul {
+    list-style-type: none;
+    font-size: 30px;
+  }
+  ul, li {
+    margin: 0;
+  }
+  ul {
+    padding: 0.5em 0.5em 0;
+  }
+  .previous, .next {
+    @include single-box-shadow(0, 3px, 5px, 2px, 
+      rgba(0, 0, 0, 0.2));
+    background-color: #fff;
+    border: rgba(0, 0, 0, 0.2);
+    color: #111;
+    @include border-radius(50px);
+  }
+  .previous {
+    padding: 13px 23px 7px 17px;
+    float: left;
+  }
+  .next {
+    padding: 13px 17px 7px 23px;
+    float: right;
+  }
+  h1 {
+    @include single-text-shadow(0, 1px, 3px, 
+      rgba(0, 0, 0, 0.2));
+    color: white;
+    font-size: 2.3em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin: 0.2em auto 0;
+    text-align: center;
+    width: 40%;
+  }
+  height: 10em;
+}
+
+body.home.index {
+  background-color: #eee;
+  margin: 0;
+  padding: 0;
+  #container {
+    background-color: #fff;
+    margin: 10%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  button {
+    @include single-box-shadow(0, 3px, 5px, 0,
+      rgba(0, 0, 0, 0.3));
+    @include transition(all 1s);
+    color: #fff;
+    font-size: 3em;
+    padding: 0.4em 1em 0.3em 1em;
+    text-decoration: none;
+    vertical-align: top;
+    i {
+      display: block;
+      float: left;
+      padding-right: 1em;
+    }
+    span {
+      display: block;
+      float: right;
+      text-transform: lowercase;
+    }
+    &:hover, &:active {
+      @include single-box-shadow(0, 3px, 5px, 0,
+      rgba(0, 0, 0, 0.1));
+    }
+  }
+  .signin {
+    padding: 5%;
+    h1 {
+      font-size: 5em;
+      text-transform: lowercase;
+      letter-spacing: 1px;
+      margin: 2em 0 1.5em;
+      font-weight: bold;
+    }
+    p {
+      font-size: 1.5em;
+      width: 80%;
+      margin: 0 auto 4em;
+    }
+    button {
+      @include background-image(radial-gradient(100px 100px, 
+        darken(#4DA9F0, 7%) 50px, darken(#3599E6, 7%) 100px));
+      @include transition(all 1s);
+      i {
+        font-family: 'SSSocialRegular'
+      }
+      &:hover, &:active {
+        @include background-image(radial-gradient(100px 100px, 
+          #4DA9F0 50px, #3599E6 100px));
+      }
+    }
+  } /* signin */
+  .dashboard {
+    .overview {
+      padding: 5%;
+    }
+    button {
+      @include background-image(radial-gradient(100px 100px, 
+        darken(#FF6B8E, 7%) 50px, darken(#F74A73, 7%) 100px));
+      @include transition(all 1s);
+      &:hover, &:active {
+        @include background-image(radial-gradient(100px 100px, 
+          #FF6B8E 50px, #F74A73 100px));
+      }
+    }
+    hr {
+      @include single-box-shadow(0, 1px, 5px, 0,
+        rgba(0, 0, 0, 0.1));
+      background-color: rgba(0, 0, 0, 0.25);
+      border: none;
+      height: 1px;
+      margin: 0;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 2em 4em;
+    }
+    h2 {
+
+    }
+    li {
+      @include border-radius(30px);
+      background-color: #fff;
+      margin-bottom: 1em;
+      text-align: left;
+      padding: 1em;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .respond-to {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    .waiting-from {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  } /* dashboard */
+}
+
+body.games.new {
+  background-color: rgb(76, 72, 127);
+  .friends-list {
+    @include block-grid(4);
+  }
+  .friends-list.large {
+
+  }
+}

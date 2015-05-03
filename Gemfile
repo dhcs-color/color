@@ -5,10 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Compass to help with writing SCSS
-gem 'compass-rails'
+# Use SASS; need Github for compatibility issues
+gem 'sass-rails', github: 'rails/sass-rails'
+# Use Compass to help with writing SCSS; need Github for compatibility issues
+gem "compass-rails", github: "compass/compass-rails", branch: "master"
 # Use Foundation for base styling
 gem 'foundation-rails'
 # Use Uglifier as compressor for JavaScript assets

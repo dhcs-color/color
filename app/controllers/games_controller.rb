@@ -7,7 +7,7 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
-    @users = Users.alphabetical.all
+    @users = User.alphabetical.all
   end
 
   # POST /games
