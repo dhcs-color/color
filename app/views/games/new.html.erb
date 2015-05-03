@@ -1,4 +1,39 @@
+<!-- +INFO DISPLAY PERSON'S FACEBOOK FRIENDS -->
+
+<!-- +TODO SET UP MODAL TO CONFIRM -->
+<!-- +TODO SET UP FORM TO SEND WHICH FRIEND IT IS -->
+
+<!-- +LINK FORWARD TO PHOTO.HTML.ERB -->
+
+<%
+  $profile_picture =  'placeholder-you.png'
+  $next = 'games/photo'
+%>
+
 <h1>New Game</h1>
+
+<ul class="friends-list">
+  <% for i in 0..13 %>
+    <li>
+      <% link_to 'confirm' do %>
+        <figure>
+          <%= image_tag  $profile_picture %>
+        </figure>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<hr>
+
+<div class="prompt">
+  <div class="you">
+    <%= image_tag 'you.png' %>
+  </div>
+  <div class="instructions">
+    Choose a friend to play with
+  </div>
+</div>
 
 <%= render 'form' %>
 
