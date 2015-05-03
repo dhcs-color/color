@@ -28,22 +28,25 @@ class Game < ActiveRecord::Base
 	# Methods
 
 	def self.waiting_on_user(user_id)
-		user_games = Game.joins(:rankings).users_games(user_id).accepted
-		user_games.reject do |game|
+		user_games = Game.users_games(user_id).accepted
+		arr = user_games.reject do |game|
 			game.rankings.any? {|r| r.user_id == user_id}
 		end
+		Game.where(id: arr.map(&:id))
 	end
 
 	def self.waiting_on_friend(user_id)
-		user_games = Game.joins(:rankings).users_games(user_id).accepted
-		user_games.reject do |game|
+		user_games = Game.users_games(user_id).accepted
+		arr = user_games.reject do |game|
 			game.rankings.any? {|r| r.user_id != user_id}
 		end
+		Game.where(id: arr.map(&:id))
 	end
 
 	def self.completed(user_id)
-		user_games = Game.joins(:rankings).users_games(user_id).accepted
-		user_games.reject{ |game| game.rankings.size < 2 }
+		user_games = Game.users_games(user_id).accepted
+		arr = user_games.reject{ |game| game.rankings.size < 2 }
+		Game.where(id: arr.map(&:id))
 	end
 
 end

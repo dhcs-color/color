@@ -1,5 +1,4 @@
 class Ranking < ActiveRecord::Base
-	# attr_accessible :game_id, :user_id, :user_colors
 
 	belongs_to	:game
 	belongs_to	:user
@@ -50,12 +49,5 @@ class Ranking < ActiveRecord::Base
 
 	    return (rDist + gDist + bDist) ** 0.5
 	end
-
-	# for testing
-
-	color1 = 0xcabb6c
-	color2 = 0xcbbc5f
-
-	puts colorDistance(color1, color2).to_s()
 
 end
