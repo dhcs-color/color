@@ -23,29 +23,25 @@
   <h1>Choose a challenger</h1>
 </nav>
 
-<ul class="friends-list large">
-  <% for i in 1..8 %>
-    <li>
-      <!-- < % link_to 'confirm' do %> -->
-        <figure>
+<div class="friends">
+  <ul class="friends-list large">
+    <% for i in 1..8 %>
+      <li>
+        <a href="">
           <%= image_tag  'placeholder-friend.png' %>
-        </figure>
-      <!-- < % end %> -->
-    </li>
-  <% end %>
-</ul>
-
-<ul class="friends-list small">
-  <% for i in 1..8 %>
-    <li>
-      <!-- < % link_to 'confirm' do %> -->
-        <figure>
+        </a>
+    <% end %>
+  </ul>
+  <ul class="friends-list small">
+    <% for i in 1..78 %>
+      <li>
+        <a href="">
           <%= image_tag  'placeholder-friend.png' %>
-        </figure>
-      <!-- < % end %> -->
-    </li>
-  <% end %>
-</ul>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
 <!-- < % = render 'form' %> -->
 

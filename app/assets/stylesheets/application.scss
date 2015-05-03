@@ -177,10 +177,44 @@ body.home.index {
 
 body.games.new {
   background-color: rgb(76, 72, 127);
+  .friends {
+    
+  }
   .friends-list {
-    @include block-grid(4);
+    background-color: red;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .friends-list {
+    list-style-type: none;
+    margin: 0 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    li {
+      float: left;
+      overflow: hidden;
+      position: relative;
+      a, a img {
+        display: block;
+        width: 100%;
+      }
+      a img {
+        max-width: 100%;
+      }
+    }
   }
   .friends-list.large {
-
+    li {
+      width: -webkit-calc(100% / 4);
+      width: calc(100% / 4);
+    }
+  }
+  .friends-list.small {
+    li {
+      width: -webkit-calc(100% / 8);
+      width: calc(100% / 8);
+    }
   }
 }
