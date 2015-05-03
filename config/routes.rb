@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+
   resources :results
   resources :rankings
   resources :games
-  match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
-  match 'logout', to: 'sessions#destroy'
+  resources :images, only: [:new, :create]
+
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'logout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+  
+  # root "dashboard"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
