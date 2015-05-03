@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From user:</strong>
+  <%= @game.from_user_id %>
+</p>
+
+<p>
+  <strong>To user:</strong>
+  <%= @game.to_user_id %>
+</p>
+
+<p>
+  <strong>Image path:</strong>
+  <%= @game.image_path %>
+</p>
+
+<p>
+  <strong>Is accepted:</strong>
+  <%= @game.is_accepted %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
