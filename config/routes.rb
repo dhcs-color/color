@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :results
-  resources :rankings
-  resources :games
-  resources :images, only: [:new, :create]
-
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'logout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
@@ -12,6 +7,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'home' => 'home#index', as: :home
+  post 'home#accepted' => 'home#update'
+  post 'home#rejected' => 'home#destroy'
 
   get 'games/new' => 'games#new'
   post 'games/new' => 'games#create'

@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
-	attr_accessible :name
+	attr_accessible :name, :image
 
 	has_many :games
 	has_many :rankings, :through => :games
 	has_many :results, :through => :rankings
 	
+	scope :alphabetical, order(name: :asc)
+
 	def self.omniauth(auth)
 	  where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
 	    user.provider = auth.provider

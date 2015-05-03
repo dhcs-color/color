@@ -9,8 +9,29 @@ class Ranking < ActiveRecord::Base
 
 	# Validate
 
-	# very insecure, should store pictures in a more protected place
-	`color_quant #{RAILS_ROOT}/uploads/images/#{game_id}* #{segmentation_num}`
+	
+	def self.create_result
+		all_rankings ||= []
+		(4..20).each do |seg_num|
+			array = `color_quant #{RAILS_ROOT}/uploads/images/#{game_id}* #{seg_num}`.split("\n")
+			all_rankings << array
+		end
+
+		scores ||= []
+		all_rankings.min do |ranking|
+			user_colors.each do |user_hex|
+				ranking[0..3].inject(0) do |result, ranking_hex|
+					result + colorDistance(user_hex, ranking_hex)
+				end
+			end
+		end
+		min_score = scores.min
+
+		result = Result.create(:ranking_id => self.id, :score => min_score)
+		result.save!
+
+		return result
+	end
 
 	def getRGB(color)
 	    red = ((color & 0xff0000) >> 16)

@@ -12,7 +12,7 @@ class Game < ActiveRecord::Base
 	validates_presence_of :game_id, :from_user_id, :to_user_id, :is_accepted
 
 	# Scopes
-	scope :acccepted, where(is_accepted: true)
+	scope :accepted, where(is_accepted: true)
 	scope :pending, where(is_accepted: false)
 	scope :by_date, order('created_at DESC')
 	scope :users_games, lambda {|user_id| where("from_user_id = :user OR to_user_id = :user",
@@ -27,7 +27,7 @@ class Game < ActiveRecord::Base
 		end
 	end
 
-	def self.waiting_on_other(user_id)
+	def self.waiting_on_friend(user_id)
 		user_games = Game.joins(:rankings).users_games(user_id).accepted
 		user_games.reject do |game|
 			game.rankings.any? {|r| r.user_id != user_id}
