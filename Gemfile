@@ -35,6 +35,8 @@ gem 'omniauth-facebook'
 
 gem 'carrierwave'
 
+gem 'simple_form'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'debugger'
