@@ -1,5 +1,5 @@
 class Result < ActiveRecord::Base
-	attr_accessible :ranking_id, :score
+	# attr_accessible :ranking_id, :score
 
 	belongs_to :ranking
 	belongs_to :game, :through => :ranking
