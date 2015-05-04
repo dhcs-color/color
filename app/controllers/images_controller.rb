@@ -8,7 +8,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to 'games/#{@image.game_id}/ranking'}
+        format.html { redirect_to '/games/#{@image.game_id}/ranking'}
         #format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new }
@@ -16,4 +16,10 @@ class ImagesController < ApplicationController
       end
     end
   end
+
+  private
+    def game_params
+      params.require(:image).permit(:game_id, :file)
+    end
+
 end

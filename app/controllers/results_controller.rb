@@ -3,9 +3,6 @@ class ResultsController < ApplicationController
 
   # GET /results
   # GET /results.json
-  def index
-    @results = Result.all
-  end
 
   # GET /results/1
   # GET /results/1.json
