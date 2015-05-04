@@ -6,19 +6,18 @@
 <!-- +LINK FORWARD TO PHOTO.HTML.ERB -->
 
 <%
-  $profile_picture =  'placeholder-you.png'
   $prev = 'dashboard'
-  $next = 'games/photo'
+  $next = "javascript:document.getElementById('new_game').submit();"
 %>
 
 <section>
   <nav>
     <ul>
       <li class="ss-icon previous">
-        <%= link_to "previous", "/" %>
+        <%= link_to "previous", "$prev" %>
       </li>
       <li class="ss-icon next">
-        <%= link_to "next", "photo" %>
+        <%= link_to "next", $next %>
       </li>
     </ul>
     <h1>Choose a challenger</h1>
