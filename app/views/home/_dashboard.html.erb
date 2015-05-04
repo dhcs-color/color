@@ -58,13 +58,15 @@
     <ul class="invitation-games">
       <% @waiting_on_friend.each do |game| %>
         <li>
-          <div class="friend-image">
-            <%= image_tag (game.other_user(current_user.id).image + "?height=200") %>
-          </div>
-          <div class="game-text" data-game-id="<%= game.id %>">
-            <h3><%= game.other_user(current_user.id).name %></h3>
-            <h4>needs to respond (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
-          </div>
+          <%= link_to ('games/' + game.id.to_s) do %>
+            <div class="friend-image">
+              <%= image_tag (game.other_user(current_user.id).image + "?height=200") %>
+            </div>
+            <div class="game-text" data-game-id="<%= game.id %>">
+              <h3><%= game.other_user(current_user.id).name %></h3>
+              <h4>needs to respond (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
+            </div>
+          <% end %>
         </li>
       <% end %>
     </ul>

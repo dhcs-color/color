@@ -2,7 +2,8 @@
 
 <!-- +LINK BACKWARDS TO NEW.HTML.ERB TO PICK DIFF FRIEND -->
 
-<%  
+<%
+  $prev = ''
   $next = 'games/new'
 %>
 
@@ -20,11 +21,8 @@
     </ul>
     <h1>Take or upload a picture!</h1>
   </nav>
+
+  <%= render 'form_image' %>
+
 </section>
 
-<div class="camera-icon">
-  <!-- on click ask for camera permission -->
-  <i class="ss-icon">camera</i>
-</div>
-
-<%= render 'form_image' %>

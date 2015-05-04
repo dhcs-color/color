@@ -117,14 +117,14 @@ body.home.index {
   .signin {
     padding: 5%;
     h1 {
-      font-size: 5em;
+      font-size: 6em;
       text-transform: lowercase;
       letter-spacing: 1px;
       margin: 2em 0 1.5em;
       font-weight: bold;
     }
     p {
-      font-size: 1.5em;
+      font-size: 2em;
       width: 80%;
       margin: 0 auto 4em;
     }
@@ -273,9 +273,27 @@ body.games.new {
 }
 
 body.images.new {
-  section {
-    background: image-url('palette-bg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+  background: image-url('palette-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  form {
+    margin: 5em;
+    label {
+      font-size: 2em;
+    }
+    .input.file {
+      @include single-box-shadow(0, 3px, 5px, 0,
+      rgba(0, 0, 0, 0.3));
+      background-color: #fff;
+      margin: 10%;
+      padding: 2em;
+      text-align: center;
+    }
+    #image_file {
+      display:  none;
+    }
+  }
+  .form-actions-min {
+    display: none;
   }
 }
