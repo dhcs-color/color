@@ -17,33 +17,21 @@
       <%= link_to "next", $next %>
     </li>
   </ul>
-  <h1>Choose your colors</h1>
+  <h1>Score</h1>
 </nav>
 
-<ul>
+<ul class="your-colors">
   <% $your_colors.each do |color| %>
-    <li style="background-color: <%= color %>"></li>
+    <li style="background-color: <%= color %>">
+      &nbsp;
+    </li>
   <% end %>
 </ul>
 
-<!-- 
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  < %= @result.user_id %>
-</p>
-
-<p>
-  <strong>Ranking:</strong>
-  < %= @result.ranking_id %>
-</p>
-
-<p>
-  <strong>Score:</strong>
-  < %= @result.score %>
-</p>
-
-< %= link_to 'Edit', edit_result_path(@result) %> |
-< %= link_to 'Back', results_path %>
- -->
+<ul class="friend-colors">
+  <% $friend_colors.each do |color| %>
+    <li style="background-color: <%= color %>">
+      &nbsp;
+    </li>
+  <% end %>
+</ul>

@@ -368,13 +368,25 @@ body.rankings.new {
 }
 
 body.results.show {
-  ul {
+  nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .your-colors,
+  .rothko-colors,
+  .friend-colors {
+    background-color: black;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: calc(100% / 2);
+    // height: 100%;
     li {
-      width: -webkit-calc(100% / 4);
+      float: left;
       width: calc(100% / 4);
-      height: -webkit-calc(100% / 3);
-      height: calc(100% / 3);
+      height: 100%;
+      display: inline-block;
     }
   }
 }
