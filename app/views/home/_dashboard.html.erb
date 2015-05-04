@@ -1,13 +1,10 @@
-<div id="container" class="dashboard">
+<div class="dashboard">
 
-  <div class="overview">
-    <h3>
-      Hello, <%= current_user.name %>!
-    </h3>
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  </div>
+  <h1>
+    Hello, <%= current_user.name %>!
+  </h1>
 
-  <hr>
+  <%= link_to "Sign out", signout_path, id: "sign_out" %>
 
   <%= link_to "games/new", id: 'new_game' do %>
     <button>
@@ -15,33 +12,32 @@
       <span>New game</span>
     </button>
   <% end %>
-  
-  <hr>
+
+  <h2>Game Invitations</h2>
 
   <% unless @not_accepted_games.nil? %>
     <ul class="completed-challenges">
       <% @not_accepted_games.each do |game| %>
         <li>
           <img src="<%= game.from_user.image + "?height=200" %>">
-          <%= game.from_user.name %>
+          <span><%= game.from_user.name %></span>
+          <span>invited you to play</span>
         </li>
       <% end %>
     </ul>
   <% end %>
 
-  <hr>
+  <h2>Current Games</h2>
 
   <ul class="respond-to">
-    <h2>Respond to your games with</h2>
     <% for i in 0..2 %>
     <li>hi</li>
     <% end %>
   </ul>
 
-  <hr>
+  <h2>Games in Progress</h2>
 
   <ul class="waiting-from">
-    <h2>Waiting to hear back from</h2>
     <% for i in 0..2 %>
       <li>ho</li>
     <% end %>

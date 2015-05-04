@@ -138,9 +138,8 @@ body.home.index {
     }
   } /* signin */
   .dashboard {
-    .overview {
-      padding: 5%;
-    }
+    margin: 10%;
+    text-align: center;
     button {
       @include background-image(radial-gradient(100px 100px, 
         darken(#FF6B8E, 7%) 50px, darken(#F74A73, 7%) 100px));
@@ -150,37 +149,31 @@ body.home.index {
           #FF6B8E 50px, #F74A73 100px));
       }
     }
-    hr {
-      @include single-box-shadow(0, 1px, 5px, 0,
-        rgba(0, 0, 0, 0.1));
-      background-color: rgba(0, 0, 0, 0.25);
-      border: none;
-      height: 1px;
-      margin: 0;
-    }
     ul {
       list-style-type: none;
       margin: 0;
-      padding: 2em 4em;
     }
     h2 {
-
+      font-size: 3em;
     }
     li {
-      @include border-radius(30px);
       background-color: #fff;
+      font-size: 1.2em;
       margin-bottom: 1em;
       text-align: left;
-      padding: 1em;
+      span:first-child {
+        display: block;
+      }
+      span:last-child {
+        font-weight: 300;
+      }
+      img {
+        max-height: 5em;
+        margin-right: 1.5em;
+      }
       &:last-child {
         margin-bottom: 0;
       }
-    }
-    .respond-to {
-      background-color: rgba(0, 0, 0, 0.05);
-    }
-    .waiting-from {
-      background-color: rgba(0, 0, 0, 0.1);
     }
   } /* dashboard */
 }
