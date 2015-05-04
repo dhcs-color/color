@@ -1,33 +1,46 @@
-<!-- +TODO REPLACE WITH USER'S ACTUAL NAME -->
+<div class="dashboard">
 
-<div id="container" class="dashboard">
+  <h1>
+    Hello, <%= current_user.name %>!
+  </h1>
 
-  <div class="overview">
-    <h3>
-      Hello, <strong>Named</strong>!
-    </h3>
-    <%= link_to "games/new", id: 'new_game' do %>
-      <button>
-        <i class="ss-icon">columns</i>
-        <span>New game</span>
-      </button>
-    <% end %>
-  </div>
+  <%= link_to "Sign out", signout_path, id: "sign_out" %>
 
-  <hr>
+  <%= link_to "games/new", id: 'new_game' do %>
+    <button>
+      <i class="ss-icon">columns</i>
+      <span>New game</span>
+    </button>
+  <% end %>
+
+  <h2>Game Invitations</h2>
+
+  <% unless @not_accepted_games.nil? %>
+    <ul class="completed-challenges">
+      <% @not_accepted_games.each do |game| %>
+        <li>
+          <img src="<%= game.from_user.image + "?height=200" %>">
+          <p>
+            <span><%= game.from_user.name %></span>
+            invited you to play
+          </span>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <h2>Current Games</h2>
 
   <ul class="respond-to">
-    <h2>Respond to your games with</h2>
-    <% for i in 0..3 %>
+    <% for i in 0..2 %>
     <li>hi</li>
     <% end %>
   </ul>
 
-  <hr>
+  <h2>Games in Progress</h2>
 
   <ul class="waiting-from">
-    <h2>Waiting to hear back from</h2>
-    <% for i in 0..5 %>
+    <% for i in 0..2 %>
       <li>ho</li>
     <% end %>
   
