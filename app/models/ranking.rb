@@ -12,7 +12,7 @@ class Ranking < ActiveRecord::Base
 	def self.create_result
 		all_rankings ||= []
 		(4..20).each do |seg_num|
-			array = `color_quant #{RAILS_ROOT}/uploads/images/#{game_id}* #{seg_num}`.split("\n")
+			array = `color_quant #{self.game.image.current_path} #{seg_num}`.split("\n")
 			all_rankings << array
 		end
 
