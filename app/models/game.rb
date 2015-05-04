@@ -22,8 +22,8 @@ class Game < ActiveRecord::Base
 	scope :by_date, -> {
 		order('created_at DESC')
 	}
-	scope :users_games, lambda {|user_id| where("from_user_id = :user OR to_user_id = :user",
-																							{ user: user_id })}
+	scope :received_games, lambda {|user_id| where("to_user_id = :user", { user: user_id })}
+	scope :users_games, lambda {|user_id| where("from_user_id = :user OR to_user_id = :user", { user: user_id })}
 
 	# Methods
 
