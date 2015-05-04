@@ -22,7 +22,7 @@ class Ranking < ActiveRecord::Base
 # scores = palette.scores(histogram.scores, 1)
 # scores.first # => [0.16493763694876, RGB [#0000ff]]
 
-	
+
 	def create_result
 		# histogram = 
 

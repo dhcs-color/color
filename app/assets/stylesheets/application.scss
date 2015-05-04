@@ -366,3 +366,15 @@ body.rankings.new {
     }
   }
 }
+
+body.results.show {
+  ul {
+    list-style-type: none;
+    li {
+      width: -webkit-calc(100% / 4);
+      width: calc(100% / 4);
+      height: -webkit-calc(100% / 3);
+      height: calc(100% / 3);
+    }
+  }
+}

@@ -1,5 +1,5 @@
 class ResultsController < ApplicationController
-  before_action :set_result, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: [:show]
 
   # GET /results
   # GET /results.json
@@ -7,6 +7,10 @@ class ResultsController < ApplicationController
   # GET /results/1
   # GET /results/1.json
   def show
+    @results ||= []
+    @game.rankings.each do |ranking|
+      @results << ranking.result
+    end
   end
 
   # POST /results
@@ -27,8 +31,8 @@ class ResultsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_result
-      @result = Result.find(params[:id])
+    def set_game
+      @game = Game.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
