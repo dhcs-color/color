@@ -1,24 +1,39 @@
-<!-- +TODO REPLACE WITH USER'S ACTUAL NAME -->
-
 <div id="container" class="dashboard">
 
   <div class="overview">
     <h3>
-      Hello, <strong>Named</strong>!
+      Hello, <%= current_user.name %>!
     </h3>
-    <%= link_to "games/new", id: 'new_game' do %>
-      <button>
-        <i class="ss-icon">columns</i>
-        <span>New game</span>
-      </button>
-    <% end %>
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
   </div>
+
+  <hr>
+
+  <%= link_to "games/new", id: 'new_game' do %>
+    <button>
+      <i class="ss-icon">columns</i>
+      <span>New game</span>
+    </button>
+  <% end %>
+  
+  <hr>
+
+  <% unless @not_accepted_games.nil? %>
+    <ul class="completed-challenges">
+      <% @not_accepted_games.each do |game| %>
+        <li>
+          <img src="<%= game.from_user.image + "?height=200" %>">
+          <%= game.from_user.name %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <hr>
 
   <ul class="respond-to">
     <h2>Respond to your games with</h2>
-    <% for i in 0..3 %>
+    <% for i in 0..2 %>
     <li>hi</li>
     <% end %>
   </ul>
@@ -27,7 +42,7 @@
 
   <ul class="waiting-from">
     <h2>Waiting to hear back from</h2>
-    <% for i in 0..5 %>
+    <% for i in 0..2 %>
       <li>ho</li>
     <% end %>
   
