@@ -19,7 +19,9 @@
   });   
 </script>
 
-<form>
+<p style="font-size: 3em;" id="log_colors">click to write down colors</a>
+
+<form id="user_palette">
   <input type="text" id="color1" name="color1" value="#000000" />
   <input type="text" id="color2" name="color2" value="#000000" />
   <input type="text" id="color3" name="color3" value="#000000" />
@@ -31,6 +33,17 @@
 <div id="colorpicker3"></div>
 <div id="colorpicker4"></div>
 
-<!--< %= render 'form' %>-->
+<script>
+  $('#log_colors').click(function() {
+    $('#user_palette input').each ( function (i) {
+      var color = $(this).css("background-color");
+      console.log(color);
+      var colorhex = rgb2hex(color);
+      console.log(colorhex);
+    });
+  });
+</script
+
+<%= render 'form_rankings' %>
 
 <!-- < %= link_to 'Back', rankings_path %> -->

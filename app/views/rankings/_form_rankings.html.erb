@@ -1,0 +1,13 @@
+<%= simple_form_for @ranking, url: 'new' do |f| %>
+  <fieldset>
+    <legend>start a game with a friend who created it, and a friend who has to accept</legend>
+    
+    <%= f.input :game_id, :input_html => { :value => @game.id } %>
+    <%= f.input :user_colors, :input_html => { } %>
+    <%= f.input :user_id, :input_html => { :value => current_user.id } %>
+
+    <div class="form-actions-min">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+    </div>
+  </fieldset>
+<% end %>
