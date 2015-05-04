@@ -36,7 +36,7 @@ class Game < ActiveRecord::Base
 	end
 
 	def self.waiting_on_friend(user_id)
-		user_games = Game.users_games(user_id).accepted
+		user_games = Game.users_games(user_id)
 		arr = user_games.reject do |game|
 			game.rankings.any? {|r| r.user_id != user_id}
 		end

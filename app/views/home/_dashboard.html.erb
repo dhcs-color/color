@@ -40,5 +40,21 @@
   <% for i in 0..2 %>
     <li>ho</li>
   <% end %>
+
+  <% unless @waiting_on_friend.nil? %>
+    <ul class="invitation-games">
+      <% @waiting_on_friend.each do |game| %>
+        <li>
+          <div class="friend-image">
+            <%= image_tag (game.from_user.image + "?height=200") %>
+          </div>
+          <div class="game-text">
+            <h3><%= game.from_user.name %></h3>
+            <h4>needs to respond</h4>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
   
 </div>
