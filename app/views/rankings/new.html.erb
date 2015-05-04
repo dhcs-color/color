@@ -30,6 +30,12 @@
     $('#colorpicker4').farbtastic('#color4');
     $('#colorpicker4').addTouch();
     $('#colorpicker4').css("display", "none");
+    $('.game_image').click(function() {
+      $('#colorpicker1').css("display", "none");
+      $('#colorpicker2').css("display", "none");
+      $('#colorpicker3').css("display", "none");
+      $('#colorpicker4').css("display", "none");
+    });
     $('#color1').click(function() {
       $('#colorpicker1').css("display", "inline-block");
       $('#colorpicker2').css("display", "none");
