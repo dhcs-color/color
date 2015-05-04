@@ -8,7 +8,7 @@ class Result < ActiveRecord::Base
 
 	def self.get_result(game_id, user_id)
 		rank_id = Ranking.where("game_id = :game AND user_id = :user", { game: game_id, user: user_id }).first.id
-    Result.where("ranking_id = :rank", {rank: rank_id}).first
+    	Result.where("ranking_id = :rank", {rank: rank_id}).first
 	end
 
     def other_result

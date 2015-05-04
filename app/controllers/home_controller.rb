@@ -10,7 +10,7 @@ class HomeController < ApplicationController
       @not_accepted_games = Game.recieved_games(current_user).pending.by_date.all
       @waiting_on_user = Game.waiting_on_user(current_user).by_date.all
       @waiting_on_friend = Game.waiting_on_friend(current_user).by_date.all
-      # @finished_games = Games.completed(current_user).by_date.all? { |e|  }
+      @finished_games = Game.completed(current_user).by_date.all
     end
   end
 
