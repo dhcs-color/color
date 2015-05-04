@@ -1,5 +1,5 @@
 class RankingsController < ApplicationController
-#  before_action :set_ranking, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: :new
 
   # GET /rankings/new
   def new
@@ -30,6 +30,6 @@ class RankingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ranking_params
-      params.require(:ranking).permit(:game_id, :user_colors)
+      params.require(:ranking).permit(:game_id, user_colors: [])
     end
 end
