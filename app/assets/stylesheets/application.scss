@@ -148,6 +148,8 @@ body.home.index {
       @include background-image(radial-gradient(100px 100px, 
         darken(#FF6B8E, 7%) 50px, darken(#F74A73, 7%) 100px));
       @include transition(all 1s);
+      padding: 1.5em 1em;
+      width: 100%;
       &:hover, &:active {
         @include background-image(radial-gradient(100px 100px, 
           #FF6B8E 50px, #F74A73 100px));
@@ -155,28 +157,48 @@ body.home.index {
     }
     ul {
       list-style-type: none;
-      margin: 0;
+      margin: 0 0 1em;
     }
     h2 {
+      color: rgba(0, 0, 0, 0.6);
       font-size: 3em;
+      margin: 1em 0.5em;
     }
     li {
+      @include single-box-shadow(0, 3px, 5px, 0,
+        rgba(0, 0, 0, 0.3));
       background-color: #fff;
+      border-collapse: collapse;
+      display: table;
       margin-bottom: 1em;
-      text-align: left;
-      p {
-        display: inline-block;
-        font-size: 1.2em;
-        font-weight: 300;
+      width: 100%;
+      &last-child {
+        margin-bottom: 0;
       }
-      span:first-child {
-        display: block;
-        font-weight: normal;
-        margin-bottom: 0.5em;
+      a {
+        display: table-row;
+        overflow: hidden;
       }
-      img {
-        max-height: 8em;
-        margin-right: 1.5em;
+      .friend-image {
+        display: table-cell;
+        vertical-align: middle;
+        width: 30%;
+        padding-right: 2em;
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+      .game-text {
+        font-size: 1.5em;
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+        width: 70%;
+        h4 {
+          color: #666;
+        }
       }
       &:last-child {
         margin-bottom: 0;
