@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'home' => 'home#index', as: :home
-  post 'home#accepted' => 'home#update'
-  post 'home#rejected' => 'home#destroy'
+  post 'home/accept' => 'home#update'
+  post 'home/reject' => 'home#destroy'
 
   get 'games/new' => 'games#new'
   post 'games/new' => 'games#create'

@@ -7,7 +7,7 @@
   <%= link_to "Sign out", signout_path, id: "sign_out" %>
 
   <%= link_to "games/new", id: 'new_game' do %>
-    <button>
+    <button class="new-game">
       Start a new game!
     </button>
   <% end %>
@@ -18,7 +18,7 @@
     <ul class="invitation-games">
       <% @not_accepted_games.each do |game| %>
         <li>
-          <%= link_to 'home#accept' do %>
+          <%= button_to '/games/:id', { :controller => 'home', :action => 'update', :id => game.id }, method: :post do %>
             <div class="friend-image">
               <%= image_tag (game.from_user.image + "?height=200") %>
             </div>
