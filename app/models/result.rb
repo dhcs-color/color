@@ -1,8 +1,8 @@
 class Result < ActiveRecord::Base
 
 	belongs_to :ranking
-	belongs_to :game, :through => :ranking
-	belongs_to :user, :through => :ranking
+	delegate :game, to: :ranking
+	delegate :user, to: :ranking
 
 	validates_presence_of :user_id, :ranking_id, :score
 	
