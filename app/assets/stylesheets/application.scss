@@ -277,7 +277,7 @@ body.images.new {
   background-repeat: no-repeat;
   background-size: cover;
   form {
-    margin: 5em;
+    margin: 10em auto;
     label {
       font-size: 2em;
     }
@@ -285,9 +285,18 @@ body.images.new {
       @include single-box-shadow(0, 3px, 5px, 0,
       rgba(0, 0, 0, 0.3));
       background-color: #fff;
+      
       margin: 10%;
-      padding: 2em;
+      padding: 3em 2em;
       text-align: center;
+      @include background-image(radial-gradient(100px 100px, 
+        darken(#FF6B8E, 7%) 50px, darken(#F74A73, 7%) 100px));
+      @include transition(all 1s);
+      color: #fff !important;
+      &:hover, &:active {
+        @include background-image(radial-gradient(100px 100px, 
+          #FF6B8E 50px, #F74A73 100px));
+      }
     }
     #image_file {
       display:  none;
@@ -295,5 +304,28 @@ body.images.new {
   }
   .form-actions-min {
     display: none;
+  }
+}
+
+body.rankings.new {
+  section {
+    background: image-url('palette-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .game_image {
+    display: block;
+    margin: 0 auto;
+  }
+  #user_palette {
+    margin: 0;
+    padding: 0;
+    input {
+      border: none;
+      display: inline-block;
+      padding: 0;
+      width: -webkit-calc(99% / 4);
+      width: calc(99% / 4);
+    }
   }
 }

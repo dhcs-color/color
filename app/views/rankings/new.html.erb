@@ -1,10 +1,25 @@
-<h1>New Ranking</h1>
+<%
+  $prev = ''
+  $next = ''
+%>
 
-<%= image_tag @game.image.file %>
+<section>
+  <nav>
+    <ul>
+      <li class="ss-icon previous">
+        <%= link_to "previous", $prev %>
+      </li>
+      <li class="ss-icon next">
+        <%= link_to "next", $next %>
+      </li>
+    </ul>
+    <h1>Choose your colors</h1>
+  </nav>
+</section>
 
-<br>
+<%= image_tag @game.image.file, :class => "game_image" %>
 
-(<%= @game.image.file.current_path %>)
+<!-- (<%= @game.image.file.current_path %>) -->
 
 <script>
   $(document).ready(function() {
@@ -19,13 +34,13 @@
   });   
 </script>
 
-<p style="font-size: 3em;" id="log_colors">click to write down colors</a>
+<!-- <p style="font-size: 3em;" id="log_colors">click to write down colors</a> -->
 
 <form id="user_palette">
-  <input type="text" id="color1" name="color1" value="#000000" />
-  <input type="text" id="color2" name="color2" value="#000000" />
-  <input type="text" id="color3" name="color3" value="#000000" />
-  <input type="text" id="color4" name="color4" value="#000000" />
+  <input type="text" id="color1" name="ranking[user_colors][]" value="#000000" />
+  <input type="text" id="color2" name="ranking[user_colors][]" value="#000000" />
+  <input type="text" id="color3" name="ranking[user_colors][]" value="#000000" />
+  <input type="text" id="color4" name="ranking[user_colors][]" value="#000000" />
 </form>
 
 <div id="colorpicker1"></div>
@@ -33,6 +48,7 @@
 <div id="colorpicker3"></div>
 <div id="colorpicker4"></div>
 
+<!--
 <script>
   $('#log_colors').click(function() {
     $('#user_palette input').each ( function (i) {
@@ -42,7 +58,7 @@
       console.log(colorhex);
     });
   });
-</script
+</script>
 
 <%= render 'form_rankings' %>
 
