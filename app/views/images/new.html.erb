@@ -1,10 +1,5 @@
-<!-- +TODO SET UP CARRIERWAVE TO SAVE PHOTO -->
-
-<!-- +LINK BACKWARDS TO NEW.HTML.ERB TO PICK DIFF FRIEND -->
-
 <%
-  $prev = ''
-    $next = "javascript:document.getElementById('new_image').submit();"
+  $next = "javascript:document.getElementById('new_image').submit();"
 %>
 
 <!-- @@@ -->
@@ -12,14 +7,14 @@
 <section>
   <nav>
     <ul>
-      <li class="ss-icon previous">
-        <%= link_to "previous", $prev %>
+      <li class="ss-icon home">
+        <%= link_to "home", "/" %>
       </li>
       <li class="ss-icon next">
         <%= link_to "next", $next %>
       </li>
     </ul>
-    <h1>Take or upload a picture!</h1>
+    <h1>Choose a picture <br> for your game!</h1>
   </nav>
 
   <%= render 'form_image' %>

@@ -1,28 +1,20 @@
-<!-- +INFO DISPLAY PERSON'S FACEBOOK FRIENDS -->
-
-<!-- +TODO SET UP MODAL TO CONFIRM -->
-<!-- +TODO SET UP FORM TO SEND WHICH FRIEND IT IS -->
-
-<!-- +LINK FORWARD TO PHOTO.HTML.ERB -->
-
 <%
-  $prev = 'dashboard'
   $next = "javascript:document.getElementById('new_game').submit();"
 %>
 
 <section>
   <nav>
     <ul>
-      <li class="ss-icon previous">
-        <%= link_to "previous", $prev %>
+      <li class="ss-icon home">
+        <%= link_to "home", "/" %>
       </li>
       <li class="ss-icon next">
         <%= link_to "next", $next %>
       </li>
     </ul>
-    <h1>Choose a challenger</h1>
+    <h1>Choose a <br> challenger</h1>
     <figure>
-      <%= image_tag 'placeholder-you.png', :class => "friend_chosen" %>
+      <%= image_tag 'placeholder.png', :class => "friend_chosen" %>
       <p class="friend_name" data-id="none" >Choose a friend</p>
     </figure>
   </nav>

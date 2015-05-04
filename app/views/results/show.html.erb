@@ -1,49 +1,54 @@
 <%
-  $prev = ''
+  $prev = '#'
   $next = '/'
   $your_colors = ['#e4b811', '#fe9f3f', '#f8d29b', '#d82a0e']
   $rothko_colors = ['#c81a0e', '#d1a81f', '#f4d6a9', '#f2d236']
   $friend_colors = ['#c80e15', '#e8c68c', '#eade1a', '#ecb227']
+  $your_score = rand(10...42)
+  $friend_score = rand(10...42)
+  $friend_name = 'Amanda Yu'
 %>
 
 <% # @@@@@ # %>
 
 <nav>
   <ul>
-    <li class="ss-icon previous">
+    <li class="ss-icon previous disabled">
       <%= link_to "previous", $prev %>
     </li>
     <li class="ss-icon next">
       <%= link_to "next", $next %>
     </li>
   </ul>
-  <h1>Choose your colors</h1>
 </nav>
 
-<ul>
+<ul class="your-colors">
   <% $your_colors.each do |color| %>
-    <li style="background-color: <%= color %>"></li>
+    <li style="background-color: <%= color %>">
+      &nbsp;
+    </li>
   <% end %>
 </ul>
 
-<!-- 
-<p id="notice"><%= notice %></p>
+<ul class="friend-colors">
+  <% $friend_colors.each do |color| %>
+    <li style="background-color: <%= color %>">
+      &nbsp;
+    </li>
+  <% end %>
+</ul>
 
-<p>
-  <strong>User:</strong>
-  < %= @result.user_id %>
-</p>
-
-<p>
-  <strong>Ranking:</strong>
-  < %= @result.ranking_id %>
-</p>
-
-<p>
-  <strong>Score:</strong>
-  < %= @result.score %>
-</p>
-
-< %= link_to 'Edit', edit_result_path(@result) %> |
-< %= link_to 'Back', results_path %>
- -->
+<div id="score">
+  <% if $your_score > $friend_score %>
+    <h3>You won!</h3>
+    <h4><strong>You</strong> scored <%= $your_score %></h4>
+    <h4><strong><%= $friend_name %></strong> scored <%= $friend_score %></h4>
+  <% elsif $your_score < $friend_score %>
+    <h3><%= $friend_name %></strong> won!</h3>
+    <h4><strong>You</strong> scored <%= $your_score %></h4>
+    <h4><strong><%= $friend_name %></strong> scored <%= $friend_score %></h4>
+  <% else %>
+    <h3>You tied with <%= $friend_name %>!</h3>
+    <h4><strong>Both of you</strong> scored <%= $your_score %>.</h4>
+  <% end %>
+</div>

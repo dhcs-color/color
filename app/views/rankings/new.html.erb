@@ -1,5 +1,4 @@
 <%
-  $prev = ''
   $next = "javascript:document.getElementById('new_ranking').submit();"
 %>
 
@@ -7,14 +6,14 @@
 
 <nav>
   <ul>
-    <li class="ss-icon previous">
-      <%= link_to "previous", $prev %>
+    <li class="ss-icon home">
+      <%= link_to "home", "/" %>
     </li>
     <li class="ss-icon next">
       <%= link_to "next", $next %>
     </li>
   </ul>
-  <h1>Choose your colors</h1>
+  <h1>Choose your <br> color palette</h1>
 </nav>
 
 <script>
