@@ -12,9 +12,31 @@
     </button>
   <% end %>
 
+  <h3>game invitations</h3>
+
   <% unless @not_accepted_games.nil? %>
     <ul class="invitation-games">
       <% @not_accepted_games.each do |game| %>
+        <li>
+          <%= link_to 'home#accept' do %>
+            <div class="friend-image">
+              <%= image_tag (game.from_user.image + "?height=200") %>
+            </div>
+            <div class="game-text">
+              <h3><%= game.from_user.name %></h3>
+              <h4>invited you to play</h4>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <h3>current games</h3>
+
+  <% unless @waiting_on_user.nil? %>
+    <ul class="current-games">
+      <% @waiting_on_user.each do |game| %>
         <li>
           <%= link_to 'home#accepted' do %>
             <div class="friend-image">
@@ -30,27 +52,18 @@
     </ul>
   <% end %>
 
-  <ul class="current-games">
-    <% for i in 0..2 %>
-    <li>hi</li>
-    <% end %>
-  </ul>
-
-  <ul class="waiting-games">
-  <% for i in 0..2 %>
-    <li>ho</li>
-  <% end %>
+  <h3>waiting on friend</h3>
 
   <% unless @waiting_on_friend.nil? %>
     <ul class="invitation-games">
       <% @waiting_on_friend.each do |game| %>
         <li>
           <div class="friend-image">
-            <%= image_tag (game.from_user.image + "?height=200") %>
+            <%= image_tag (game.other_user(current_user.id).image + "?height=200") %>
           </div>
-          <div class="game-text">
-            <h3><%= game.from_user.name %></h3>
-            <h4>needs to respond</h4>
+          <div class="game-text" data-game-id="<%= game.id %>">
+            <h3><%= game.other_user(current_user.id).name %></h3>
+            <h4>needs to respond (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
           </div>
         </li>
       <% end %>
