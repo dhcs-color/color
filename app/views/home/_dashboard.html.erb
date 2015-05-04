@@ -20,8 +20,10 @@
       <% @not_accepted_games.each do |game| %>
         <li>
           <img src="<%= game.from_user.image + "?height=200" %>">
-          <span><%= game.from_user.name %></span>
-          <span>invited you to play</span>
+          <p>
+            <span><%= game.from_user.name %></span>
+            invited you to play
+          </span>
         </li>
       <% end %>
     </ul>
