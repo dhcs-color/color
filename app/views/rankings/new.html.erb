@@ -56,7 +56,11 @@
       $('#colorpicker3').css("display", "none");
       $('#colorpicker4').css("display", "inline-block");
     });
-  });   
+    $('#color1').on("change", function () {
+      console.log("changed!");
+      console.log($(this).css("background-color"));
+    });
+  });  
 </script>
 
 <%= render 'form_rankings' %>
@@ -65,17 +69,4 @@
 <div class="colorpicker closed" id="colorpicker2"></div>
 <div class="colorpicker closed" id="colorpicker3"></div>
 <div class="colorpicker closed" id="colorpicker4"></div>
-
-<!--
-<script>
-  $('#log_colors').click(function() {
-    $('#user_palette input').each ( function (i) {
-      var color = $(this).css("background-color");
-      console.log(color);
-      var colorhex = rgb2hex(color);
-      console.log(colorhex);
-    });
-  });
-</script> -->
-
 

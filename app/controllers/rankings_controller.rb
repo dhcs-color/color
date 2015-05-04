@@ -14,7 +14,7 @@ class RankingsController < ApplicationController
     respond_to do |format|
       if @ranking.save
         format.html { redirect_to :home }
-        result = Result.create_result
+        result = Ranking.create_result
         if !result.save
           format.json { render json: result.errors, status: :unprocessable_entity }
         end

@@ -238,8 +238,6 @@ jQuery._farbtastic = function (container, callback) {
 
     // Linked elements or callback
     if (typeof fb.callback == 'object') {
-      console.log(this);
-      console.log("hrjlek");
       $(fb.callback).css({
         backgroundColor: fb.color,
         color: fb.hsl[2] > 0.5 ? '#000' : '#fff'
@@ -249,6 +247,13 @@ jQuery._farbtastic = function (container, callback) {
       $(fb.callback).each(function() {
         if (this.value && this.value != fb.color) {
           this.value = fb.color;
+          console.log(fb.color);
+          // $(this).val(fb.color);
+          console.log($(this).css("background-color"));
+          // val rgb = $(this).css("background-color"));
+          // val hex = rgb2hex(rgb);
+          // console.log(hex);
+          // this.val(fb.color);
         }
       });
     }

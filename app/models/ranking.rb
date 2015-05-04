@@ -13,14 +13,15 @@ class Ranking < ActiveRecord::Base
 	
 	def self.create_result
 		user_colors ||= []
-		user_colors << self.color1
-		user_colors << self.color2
-		user_colors << self.color3
-		user_colors << self.color4
+		user_colors << :color1
+		user_colors << :color2
+		user_colors << :color3
+		user_colors << :color4
 
+		game = Game.find(self.game_id)
 		all_rankings ||= []
 		(4..20).each do |seg_num|
-			array = `color_quant #{self.game.image.file.current_path} #{seg_num}`.split("\n")
+			array = `color_quant #{game.image.file.current_path} #{seg_num}`.split("\n")
 			all_rankings << array if array.shift == "success"
 		end
 

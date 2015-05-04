@@ -1,10 +1,10 @@
 <%= simple_form_for @ranking, url: 'palette' do |f| %>
     
   <%= f.input :game_id, :as => :hidden, :input_html => { :value => @game.id } %>
-  <%= f.input :color1, label: false, :input_html => { :class => 'swatch', :id => 'color1' } %>
-  <%= f.input :color2, label: false, :input_html => { :class => 'swatch', :id => 'color2' } %>
-  <%= f.input :color3, label: false, :input_html => { :class => 'swatch', :id => 'color3' } %>
-  <%= f.input :color4, label: false, :input_html => { :class => 'swatch', :id => 'color4' } %>
+  <%= f.input :color1, label: false, :input_html => { :class => 'swatch', :id => 'color1', :value => "#ffffff" } %>
+  <%= f.input :color2, label: false, :input_html => { :class => 'swatch', :id => 'color2', :value => "#ffffff" } %>
+  <%= f.input :color3, label: false, :input_html => { :class => 'swatch', :id => 'color3', :value => "#ffffff" } %>
+  <%= f.input :color4, label: false, :input_html => { :class => 'swatch', :id => 'color4', :value => "#ffffff" } %>
   <%= f.input :user_id, label: false, :as => :hidden, :input_html => { :value => current_user.id } %>
 
   <div class="form-actions-min">
