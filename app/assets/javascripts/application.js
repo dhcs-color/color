@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require facebook
 //= require_tree .
 
 $(document).foundation();

@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-	# attr_accessible :name, :image
 
 	has_many :games
 	has_many :rankings, :through => :games
