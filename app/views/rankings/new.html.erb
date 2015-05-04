@@ -3,21 +3,20 @@
   $next = ''
 %>
 
-<section>
-  <nav>
-    <ul>
-      <li class="ss-icon previous">
-        <%= link_to "previous", $prev %>
-      </li>
-      <li class="ss-icon next">
-        <%= link_to "next", $next %>
-      </li>
-    </ul>
-    <h1>Choose your colors</h1>
-  </nav>
-</section>
-
 <%= image_tag @game.image.file, :class => "game_image" %>
+
+<nav>
+  <ul>
+    <li class="ss-icon previous">
+      <%= link_to "previous", $prev %>
+    </li>
+    <li class="ss-icon next">
+      <%= link_to "next", $next %>
+    </li>
+  </ul>
+  <h1>Choose your colors</h1>
+</nav>
+
 
 <!-- (<%= @game.image.file.current_path %>) -->
 
@@ -25,28 +24,57 @@
   $(document).ready(function() {
     $('#colorpicker1').farbtastic('#color1');
     $('#colorpicker1').addTouch();
+    $('#colorpicker1').css("display", "none");
     $('#colorpicker2').farbtastic('#color2');
     $('#colorpicker2').addTouch();
+    $('#colorpicker2').css("display", "none");
     $('#colorpicker3').farbtastic('#color3');
     $('#colorpicker3').addTouch();
+    $('#colorpicker3').css("display", "none");
     $('#colorpicker4').farbtastic('#color4');
     $('#colorpicker4').addTouch();
+    $('#colorpicker4').css("display", "none");
+    $('#color1').click(function() {
+      $('#colorpicker1').css("display", "inline-block");
+      $('#colorpicker2').css("display", "none");
+      $('#colorpicker3').css("display", "none");
+      $('#colorpicker4').css("display", "none");
+    });
+    $('#color2').click(function() {
+      $('#colorpicker1').css("display", "none");
+      $('#colorpicker2').css("display", "inline-block");
+      $('#colorpicker3').css("display", "none");
+      $('#colorpicker4').css("display", "none");
+    });
+    $('#color3').click(function() {
+      $('#colorpicker1').css("display", "none");
+      $('#colorpicker2').css("display", "none");
+      $('#colorpicker3').css("display", "inline-block");
+      $('#colorpicker4').css("display", "none");
+    });
+    $('#color4').click(function() {
+      console.log("switched!");
+      $('#colorpicker1').css("display", "none");
+      $('#colorpicker2').css("display", "none");
+      $('#colorpicker3').css("display", "none");
+      $('#colorpicker4').css("display", "inline-block");
+    });
   });   
 </script>
 
 <!-- <p style="font-size: 3em;" id="log_colors">click to write down colors</a> -->
 
 <form id="user_palette">
-  <input type="text" id="color1" name="ranking[user_colors][]" value="#000000" />
-  <input type="text" id="color2" name="ranking[user_colors][]" value="#000000" />
-  <input type="text" id="color3" name="ranking[user_colors][]" value="#000000" />
-  <input type="text" id="color4" name="ranking[user_colors][]" value="#000000" />
+  <input type="text" id="color1" />
+  <input type="text" id="color2" />
+  <input type="text" id="color3" />
+  <input type="text" id="color4" />
 </form>
 
-<div id="colorpicker1"></div>
-<div id="colorpicker2"></div>
-<div id="colorpicker3"></div>
-<div id="colorpicker4"></div>
+<div class="colorpicker closed" id="colorpicker1"></div>
+<div class="colorpicker closed" id="colorpicker2"></div>
+<div class="colorpicker closed" id="colorpicker3"></div>
+<div class="colorpicker closed" id="colorpicker4"></div>
 
 <!--
 <script>
