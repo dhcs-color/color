@@ -5,7 +5,7 @@
   $friend_colors = ['#c80e15', '#e8c68c', '#eade1a', '#ecb227']
   $your_score = rand(10...42)
   $friend_score = rand(10...42)
-  $friend_name = 'Duan Wang'
+  $friend_name = 'Celine Nguyen'
 %>
 
 <% # @@@@@ # %>
@@ -21,16 +21,16 @@
   </ul>
 </nav>
 
-<ul class="your-colors">
-  <% $your_colors.each do |color| %>
+<ul class="friend-colors">
+  <% $friend_colors.each do |color| %>
     <li style="background-color: <%= color %>">
       &nbsp;
     </li>
   <% end %>
 </ul>
 
-<ul class="friend-colors">
-  <% $friend_colors.each do |color| %>
+<ul class="your-colors">
+  <% $your_colors.each do |color| %>
     <li style="background-color: <%= color %>">
       &nbsp;
     </li>
