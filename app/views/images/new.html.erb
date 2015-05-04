@@ -1,2 +1,38 @@
-<h1>Images#new</h1>
-<p>Find me in app/views/images/new.html.erb</p>
+<!-- +TODO SET UP CARRIERWAVE TO SAVE PHOTO -->
+
+<!-- +LINK BACKWARDS TO NEW.HTML.ERB TO PICK DIFF FRIEND -->
+
+<%  
+  $name = 'Adaline Yu'
+  $profile_picture =  'placeholder-you.png'
+  $friend_name
+  $friend_profile_picture = 'placeholder-friend.png'
+  $prev = ""
+  $next = 'games/new'
+%>
+
+<!-- @@@ -->
+
+<section>
+  <nav>
+    <ul>
+      <li class="ss-icon previous">
+        <%= link_to "previous", $prev %>
+      </li>
+      <li class="ss-icon next">
+        <%= link_to "next", $next %>
+      </li>
+    </ul>
+    <h1>Take or upload a picture!</h1>
+  </nav>
+</section>
+
+<div class="camera-icon">
+  <!-- on click ask for camera permission -->
+  <i class="ss-icon">camera</i>
+</div>
+
+<form action="palette" method="post" enctype="multipart/form-data">
+  <input class="upload button secondary" type="file" accept="image/*" capture>
+  <input class="button" type="submit" value="Use this!">
+</form>

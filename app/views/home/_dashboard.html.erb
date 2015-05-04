@@ -1,7 +1,7 @@
 <div class="dashboard">
 
   <h1>
-    Hello, <%= current_user.name %>!
+    Hello, <%= current_user.name %>! (<%= current_user.id %>)
   </h1>
 
   <%= link_to "Sign out", signout_path, id: "sign_out" %>

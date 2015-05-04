@@ -208,9 +208,14 @@ body.home.index {
 }
 
 body.games.new {
-  background-color: rgb(76, 72, 127);
+  background-color: #fff;
+  form {
+    display: none;
+  }
   section {
-    background-color: #4c487f;
+    background: image-url('palette-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 40em;
     position: fixed;
       top: 0;
@@ -233,6 +238,7 @@ body.games.new {
   }
   .friends {
     margin-top: 40em;
+    background-color: #fff;
   }
   .friends-list {
     list-style-type: none;
@@ -263,5 +269,13 @@ body.games.new {
       width: -webkit-calc(100% / 8);
       width: calc(100% / 8);
     }
+  }
+}
+
+body.images.new {
+  section {
+    background: image-url('palette-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
