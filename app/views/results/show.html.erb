@@ -1,20 +1,19 @@
 <%
-  $prev = '#'
   $next = '/'
   $your_colors = ['#e4b811', '#fe9f3f', '#f8d29b', '#d82a0e']
   $rothko_colors = ['#c81a0e', '#d1a81f', '#f4d6a9', '#f2d236']
   $friend_colors = ['#c80e15', '#e8c68c', '#eade1a', '#ecb227']
   $your_score = rand(10...42)
   $friend_score = rand(10...42)
-  $friend_name = 'Amanda Yu'
+  $friend_name = 'Duan Wang'
 %>
 
 <% # @@@@@ # %>
 
 <nav>
   <ul>
-    <li class="ss-icon previous disabled">
-      <%= link_to "previous", $prev %>
+    <li class="ss-icon home">
+      <%= link_to "home", "/" %>
     </li>
     <li class="ss-icon next">
       <%= link_to "next", $next %>

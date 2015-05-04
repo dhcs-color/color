@@ -12,7 +12,26 @@
     </button>
   <% end %>
 
-  <% unless @not_accepted_games.nil? %>
+  <% unless (@finished_games.size < 1) %>
+    <h2>finished games!</h2>
+    <ul class="invitation-games">
+      <% @finished_games.each do |game| %>
+        <li>
+          <%= link_to ('games/' + game.id.to_s + "/score") do %>
+            <div class="friend-image">
+              <%= image_tag (game.from_user.image + "?height=200") %>
+            </div>
+            <div class="game-text">
+              <h3><%= game.from_user.name %></h3>
+              <h4>wants you to check the score! (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% unless (@not_accepted_games.size < 1) %>
     <h2>game invitations</h2>
     <ul class="invitation-games">
       <% @not_accepted_games.each do |game| %>
@@ -23,7 +42,7 @@
             </div>
             <div class="game-text">
               <h3><%= game.from_user.name %></h3>
-              <h4>invited you to play</h4>
+              <h4>invited you to play! (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
             </div>
           <% end %>
         </li>
@@ -36,13 +55,13 @@
     <ul class="current-games">
       <% @waiting_on_user.each do |game| %>
         <li>
-          <%= link_to 'home#accepted' do %>
+          <%= link_to ('games/' + game.id.to_s) do %>
             <div class="friend-image">
               <%= image_tag (game.from_user.image + "?height=200") %>
             </div>
             <div class="game-text">
               <h3><%= game.from_user.name %></h3>
-              <h4>invited you to play</h4>
+              <h4>is waiting for your move! (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
             </div>
           <% end %>
         </li>
@@ -50,7 +69,7 @@
     </ul>
   <% end %>
 
-  <% unless @waiting_on_friend.nil? %>
+  <% unless (@waiting_on_friend.size < 1) %>
     <h2>waiting on friend</h2>
     <ul class="invitation-games">
       <% @waiting_on_friend.each do |game| %>
