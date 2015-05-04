@@ -27,7 +27,7 @@ class Game < ActiveRecord::Base
 
 	# Methods
 
-	def self.other_user(user_id)
+	def other_user(user_id)
 		user_id == from_user ? to_user : from_user
 	end
 
