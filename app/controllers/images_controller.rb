@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to :controller => :results, :action => :new, :id => @game.id }
+        format.html { redirect_to :controller => :rankings, :action => :new, :id => @image.game_id }
         #format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new }

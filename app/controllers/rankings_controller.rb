@@ -28,6 +28,10 @@ class RankingsController < ApplicationController
       @ranking = Ranking.find(params[:id])
     end
 
+    def set_game
+      @game = Game.find(params[:id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def ranking_params
       params.require(:ranking).permit(:game_id, user_colors: [])
