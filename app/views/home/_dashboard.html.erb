@@ -12,25 +12,6 @@
     </button>
   <% end %>
 
-  <% unless (@finished_games.size < 1) %>
-    <h2>finished games!</h2>
-    <ul class="invitation-games">
-      <% @finished_games.each do |game| %>
-        <li>
-          <%= link_to ('games/' + game.id.to_s + "/score") do %>
-            <div class="friend-image">
-              <%= image_tag (game.from_user.image + "?height=200") %>
-            </div>
-            <div class="game-text">
-              <h3><%= game.from_user.name %></h3>
-              <h4>wants you to check the score! (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
-            </div>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-
   <% unless (@not_accepted_games.size < 1) %>
     <h2>game invitations</h2>
     <ul class="invitation-games">
@@ -50,6 +31,25 @@
     </ul>
   <% end %>
 
+  <% unless (@needs_image.size < 1) %>
+    <h2>needs image</h2>
+    <ul class="current-games">
+      <% @needs_image.each do |game| %>
+        <li>
+          <%= link_to ('games/' + game.id.to_s) do %>
+            <div class="friend-image">
+              <%= image_tag (game.other_user(current_user.id).image + "?height=200") %>
+            </div>
+            <div class="game-text">
+              <h3><%= game.other_user(current_user.id).name %></h3>
+              <h4>is waiting for your move! (id is <%= game.id %>, from <%= game.other_user(current_user.id).id %>)</h4>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <% unless (@waiting_on_user.size < 1) %>
     <h2>waiting on you</h2>
     <ul class="current-games">
@@ -57,11 +57,11 @@
         <li>
           <%= link_to ('games/' + game.id.to_s) do %>
             <div class="friend-image">
-              <%= image_tag (game.from_user.image + "?height=200") %>
+              <%= image_tag (game.other_user(current_user.id).image + "?height=200") %>
             </div>
             <div class="game-text">
-              <h3><%= game.from_user.name %></h3>
-              <h4>is waiting for your move! (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
+              <h3><%= game.other_user(current_user.id).name %></h3>
+              <h4>is waiting for your move! (id is <%= game.id %>, from <%= game.other_user(current_user.id).id %>)</h4>
             </div>
           <% end %>
         </li>
@@ -80,7 +80,7 @@
             </div>
             <div class="game-text" data-game-id="<%= game.id %>">
               <h3><%= game.other_user(current_user.id).name %></h3>
-              <h4>needs to respond (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
+              <h4>needs to respond (id is <%= game.id %>, from <%= game.other_user(current_user.id).id %>)</h4>
             </div>
           <% end %>
         </li>
@@ -88,4 +88,23 @@
     </ul>
   <% end %>
   
+  <% unless (@finished_games.size < 1) %>
+    <h2>finished games!</h2>
+    <ul class="invitation-games">
+      <% @finished_games.each do |game| %>
+        <li>
+          <%= link_to ('games/' + game.id.to_s + "/score") do %>
+            <div class="friend-image">
+              <%= image_tag (game.other_user(current_user.id).image + "?height=200") %>
+            </div>
+            <div class="game-text">
+              <h3><%= game.other_user(current_user.id).name %></h3>
+              <h4>wants you to check the score! (id is <%= game.id %>, from <%= game.other_user(current_user.id).id %>)</h4>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
 </div>

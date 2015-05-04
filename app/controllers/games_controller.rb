@@ -13,10 +13,12 @@ class GamesController < ApplicationController
       puts @game
       if @game.image.nil?
         format.html { redirect_to :controller => :images, :action => :new, :id => @game.id }
-      elsif Game.waiting_on_user(current_user).to_a.include?(@game); # not sure if this line works
+      elsif @game.waiting_on_user(current_user.id) # not sure if this line works
         format.html { redirect_to :controller => :rankings, :action => :new, :id => @game.id }
-      else
+      elsif !@game.waiting_on_user(@game.other_user(current_user.id).id)
         format.html { redirect_to :controller => :results, :action => :show, :id => @game.id }
+      else
+        format.html { redirect_to :home }
       end
     end
       

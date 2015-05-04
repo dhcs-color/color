@@ -22,32 +22,46 @@
 </nav>
 
 <ul class="your-colors">
-  <% $your_colors.each do |color| %>
-    <li style="background-color: <%= color %>">
+    <li style="background-color: <%= @user_result.ranking.color1 %>">
       &nbsp;
     </li>
-  <% end %>
+    <li style="background-color: <%= @user_result.ranking.color2 %>">
+      &nbsp;
+    </li>
+    <li style="background-color: <%= @user_result.ranking.color3 %>">
+      &nbsp;
+    </li>
+    <li style="background-color: <%= @user_result.ranking.color4 %>">
+      &nbsp;
+    </li>
 </ul>
 
 <ul class="friend-colors">
-  <% $friend_colors.each do |color| %>
-    <li style="background-color: <%= color %>">
+    <li style="background-color: <%= @other_result.ranking.color1 %>">
       &nbsp;
     </li>
-  <% end %>
+    <li style="background-color: <%= @other_result.ranking.color2 %>">
+      &nbsp;
+    </li>
+    <li style="background-color: <%= @other_result.ranking.color3 %>">
+      &nbsp;
+    </li>
+    <li style="background-color: <%= @other_result.ranking.color4 %>">
+      &nbsp;
+    </li>
 </ul>
 
 <div id="score">
-  <% if $your_score > $friend_score %>
+  <% if @user_result.score > @other_result.score %>
     <h3>You won!</h3>
-    <h4><strong>You</strong> scored <%= $your_score %></h4>
-    <h4><strong><%= $friend_name %></strong> scored <%= $friend_score %></h4>
-  <% elsif $your_score < $friend_score %>
-    <h3><%= $friend_name %></strong> won!</h3>
-    <h4><strong>You</strong> scored <%= $your_score %></h4>
-    <h4><strong><%= $friend_name %></strong> scored <%= $friend_score %></h4>
+    <h4><strong>You</strong> scored <%= @user_result.score %></h4>
+    <h4><strong><%= @other_result.ranking.user.name %></strong> scored <%= @other_result.score %></h4>
+  <% elsif @user_result.score < @other_result.score %>
+    <h3><%= @other_result.ranking.user.name %></strong> won!</h3>
+    <h4><strong>You</strong> scored <%= @user_result.score %></h4>
+    <h4><strong><%= @other_result.ranking.user.name %></strong> scored <%= @other_result.score %></h4>
   <% else %>
-    <h3>You tied with <%= $friend_name %>!</h3>
-    <h4><strong>Both of you</strong> scored <%= $your_score %>.</h4>
+    <h3>You tied with <%= @other_result.ranking.user.name %>!</h3>
+    <h4><strong>Both of you</strong> scored <%= @user_result.score %>.</h4>
   <% end %>
 </div>
