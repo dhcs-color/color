@@ -12,5 +12,14 @@ class Result < ActiveRecord::Base
 	def get_user(user_id)
 		User.find(self.ranking.user_id)
 	end
+
+    def other_result(user_id)
+      self.ranking.game.rankings.each do |ranking|
+        if ranking.user_id != user_id
+          return ranking.result
+        end
+      end
+      return nil
+    end
 	
 end
