@@ -12,7 +12,7 @@ class Ranking < ActiveRecord::Base
 
 	
 	def self.create_result
-		user_colors || = []
+		user_colors ||= []
 		user_colors << self.color1
 		user_colors << self.color2
 		user_colors << self.color3

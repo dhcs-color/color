@@ -1,6 +1,6 @@
 <%
   $prev = ''
-  $next = ''
+  $next = "javascript:document.getElementById('new_ranking').submit();"
 %>
 
 <%= image_tag @game.image.file, :class => "game_image" %>
@@ -16,9 +16,6 @@
   </ul>
   <h1>Choose your colors</h1>
 </nav>
-
-
-<!-- (<%= @game.image.file.current_path %>) -->
 
 <script>
   $(document).ready(function() {
@@ -62,14 +59,7 @@
   });   
 </script>
 
-<!-- <p style="font-size: 3em;" id="log_colors">click to write down colors</a> -->
-
-<form id="user_palette">
-  <input type="text" id="color1" />
-  <input type="text" id="color2" />
-  <input type="text" id="color3" />
-  <input type="text" id="color4" />
-</form>
+<%= render 'form_rankings' %>
 
 <div class="colorpicker closed" id="colorpicker1"></div>
 <div class="colorpicker closed" id="colorpicker2"></div>
@@ -88,6 +78,4 @@
   });
 </script> -->
 
-<%= render 'form_rankings' %>
 
-<!-- < %= link_to 'Back', rankings_path %> -->

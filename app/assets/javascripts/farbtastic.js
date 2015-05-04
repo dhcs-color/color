@@ -238,7 +238,8 @@ jQuery._farbtastic = function (container, callback) {
 
     // Linked elements or callback
     if (typeof fb.callback == 'object') {
-      // Set background/foreground color
+      console.log(this);
+      console.log("hrjlek");
       $(fb.callback).css({
         backgroundColor: fb.color,
         color: fb.hsl[2] > 0.5 ? '#000' : '#fff'
