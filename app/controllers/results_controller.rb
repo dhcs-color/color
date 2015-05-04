@@ -7,10 +7,8 @@ class ResultsController < ApplicationController
   # GET /results/1
   # GET /results/1.json
   def show
-    @results ||= []
-    @game.rankings.each do |ranking|
-      @results << ranking.result
-    end
+    @user_result = Result.get_result(@game.id, current_user.id)
+    @other_result = @user_result.other_result
   end
 
   # POST /results
