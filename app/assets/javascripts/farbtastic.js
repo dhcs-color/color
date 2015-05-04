@@ -81,6 +81,8 @@ jQuery._farbtastic = function (container, callback) {
   }
   fb.updateValue = function (event) {
     if (this.value && this.value != fb.color) {
+      console.log("print the value");
+      console.log(this.value);
       fb.setColor(this.value);
     }
   }
@@ -246,14 +248,8 @@ jQuery._farbtastic = function (container, callback) {
       // Change linked value
       $(fb.callback).each(function() {
         if (this.value && this.value != fb.color) {
-          this.value = fb.color;
+          this.value = fb.color.split('#')[1];;
           console.log(fb.color);
-          // $(this).val(fb.color);
-          console.log($(this).css("background-color"));
-          // val rgb = $(this).css("background-color"));
-          // val hex = rgb2hex(rgb);
-          // console.log(hex);
-          // this.val(fb.color);
         }
       });
     }
