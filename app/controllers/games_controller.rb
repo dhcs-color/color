@@ -8,12 +8,14 @@ class GamesController < ApplicationController
 
   # redirect game to whatever step 
   def show
-    if @game.image.nil?
-      format.html { redirect_to 'games/#{@game.id}/photo' }
-    elsif Game.waiting_on_user(current_user).all.include?(@game); # not sure if this line works
-      format.html { redirect_to 'games/#{@game.id}/ranking' }
-    else
-      format.html { redirect_to 'games/#{@game.id}/score' }
+    respond_to do |format|
+      if @game.image.nil?
+        format.html { redirect_to 'games/#{@game.id}/photo' }
+      elsif Game.waiting_on_user(current_user).all.include?(@game); # not sure if this line works
+        format.html { redirect_to 'games/#{@game.id}/ranking' }
+      else
+        format.html { redirect_to 'games/#{@game.id}/score' }
+      end
     end
       
   end
