@@ -1,7 +1,7 @@
 <div class="dashboard">
 
   <h1>
-    Hello, <%= current_user.name %>! (<%= current_user.id %>)
+    Hello, <%= current_user.name %>! <!-- (<%= current_user.id %>) -->
   </h1>
 
   <%= link_to "(sign out)", signout_path, id: "sign_out" %>
@@ -23,7 +23,7 @@
             </div>
             <div class="game-text">
               <h3><%= game.from_user.name %></h3>
-              <h4>wants you to check the score! (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
+              <h4>wants you to check the score!<!--  (id is <%= game.id %>, from <%= game.from_user_id %>) --></h4>
             </div>
           <% end %>
         </li>
@@ -42,7 +42,7 @@
             </div>
             <div class="game-text">
               <h3><%= game.from_user.name %></h3>
-              <h4>invited you to play! (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
+              <h4>invited you to play! <!-- (id is <%= game.id %>, from <%= game.from_user_id %>) --></h4>
             </div>
           <% end %>
         </li>
@@ -61,7 +61,7 @@
             </div>
             <div class="game-text">
               <h3><%= game.from_user.name %></h3>
-              <h4>is waiting for your move! (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
+              <h4>is waiting for your move! <!-- (id is <%= game.id %>, from <%= game.from_user_id %>) --></h4>
             </div>
           <% end %>
         </li>
@@ -80,7 +80,7 @@
             </div>
             <div class="game-text" data-game-id="<%= game.id %>">
               <h3><%= game.other_user(current_user.id).name %></h3>
-              <h4>needs to respond (id is <%= game.id %>, from <%= game.from_user_id %>)</h4>
+              <h4>needs to respond <!-- (id is <%= game.id %>, from <%= game.from_user_id %>) --></h4>
             </div>
           <% end %>
         </li>
