@@ -25,6 +25,10 @@ body {
   font-size: 10px;
 }
 
+.clear {
+  clear: both;
+}
+
 a:hover {
   background-color: rgba(0, 0, 0, 0.0);
 }
@@ -158,17 +162,20 @@ body.home.index {
     }
     li {
       background-color: #fff;
-      font-size: 1.2em;
       margin-bottom: 1em;
       text-align: left;
-      span:first-child {
-        display: block;
-      }
-      span:last-child {
+      p {
+        display: inline-block;
+        font-size: 1.2em;
         font-weight: 300;
       }
+      span:first-child {
+        display: block;
+        font-weight: normal;
+        margin-bottom: 0.5em;
+      }
       img {
-        max-height: 5em;
+        max-height: 8em;
         margin-right: 1.5em;
       }
       &:last-child {

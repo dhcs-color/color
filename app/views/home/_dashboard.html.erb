@@ -18,13 +18,15 @@
   <% unless @not_accepted_games.nil? %>
     <ul class="completed-challenges">
       <% @not_accepted_games.each do |game| %>
-        <li>
-          <img src="<%= game.from_user.image + "?height=200" %>">
-          <p>
-            <span><%= game.from_user.name %></span>
-            invited you to play
-          </span>
-        </li>
+        <%= link_to ("games/" + game.id.to_s) do %>
+          <li>
+            <%= image_tag (game.from_user.image + "?height=200") %>
+            <p>
+              <span><%= game.from_user.name %></span>
+              invited you to play
+            </p>
+          </li>
+        <% end %>
       <% end %>
     </ul>
   <% end %>
