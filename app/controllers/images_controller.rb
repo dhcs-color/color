@@ -8,7 +8,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to 'games/#{@image.game_id}/ranking'}
+        format.html { redirect_to '/games/#{@image.game_id}/ranking'}
         #format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new }
