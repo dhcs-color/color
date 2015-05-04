@@ -13,7 +13,7 @@ class RankingsController < ApplicationController
 
     respond_to do |format|
       if @ranking.save
-        format.html { redirect_to 'games/#{@ranking.game_id}/score' }
+        format.html { redirect_to :home }
         #format.json { render :show, status: :created, location: @ranking }
       else
         format.html { render :new }

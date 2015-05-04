@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: [:edit, :update, :destroy]
 
   # GET /games
   # GET /games.json
@@ -10,6 +10,7 @@ class HomeController < ApplicationController
       @not_accepted_games = Game.users_games(current_user).pending.by_date.all
       @waiting_on_user = Game.waiting_on_user(current_user).by_date.all
       @waiting_on_friend = Game.waiting_on_friend(current_user).by_date.all
+      @finished_games = Games.completed(current_user).by_date.all? { |e|  }
     end
   end
 
