@@ -3,11 +3,6 @@
 <!-- +LINK BACKWARDS TO NEW.HTML.ERB TO PICK DIFF FRIEND -->
 
 <%  
-  $name = 'Adaline Yu'
-  $profile_picture =  'placeholder-you.png'
-  $friend_name
-  $friend_profile_picture = 'placeholder-friend.png'
-  $prev = ""
   $next = 'games/new'
 %>
 
@@ -36,3 +31,5 @@
   <input class="upload button secondary" type="file" accept="image/*" capture>
   <input class="button" type="submit" value="Use this!">
 </form>
+
+<%= render 'form_image' %>

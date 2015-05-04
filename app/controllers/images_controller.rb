@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
         #format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new }
-        format.json { render json: @game.errors, status: :unprocessable_entity }
+        format.json { render json: @image.errors, status: :unprocessable_entity }
       end
     end
   end

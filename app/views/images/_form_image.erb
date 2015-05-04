@@ -1,7 +1,7 @@
 <%= simple_form_for @image, url: 'new' do |f| %>
   <fieldset>
     <legend>upload an image for a game</legend>
-    <%= img.input :file, :as => :file %>
+    <%= f.input :file, :as => :file %>
     <%= f.input :game_id, :as => :hidden, :input_html => { value: @game.id } %>
     <!-- place submit button -->
     <div class="form-actions-min">
