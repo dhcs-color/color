@@ -15,13 +15,13 @@ Rails.application.routes.draw do
 
   get 'games/:id' => 'games#show'
 
-  get 'games/:id/photo' => 'image#new'
-  post 'games/:id/photo' => 'image#create'
+  get 'games/:id/photo' => 'images#new'
+  post 'games/:id/photo' => 'images#create'
 
-  get 'games/:id/palette' => 'ranking#new'
-  post 'games/:id/palette' => 'ranking#create'
+  get 'games/:id/palette' => 'rankings#new'
+  post 'games/:id/palette' => 'rankings#create'
 
-  get 'games/:id/score' => 'result#show'
+  get 'games/:id/score' => 'results#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
