@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'games/new' => 'games#new'
   post 'games/new' => 'games#create'
 
+  get 'games/:id' => 'games#show'
+
   get 'games/:id/photo' => 'image#new'
   post 'games/:id/photo' => 'image#create'
 
