@@ -16,4 +16,10 @@ class ImagesController < ApplicationController
       end
     end
   end
+
+  private
+    def game_params
+      params.require(:image).permit(:game_id, :file)
+    end
+
 end
