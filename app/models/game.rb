@@ -10,7 +10,7 @@ class Game < ActiveRecord::Base
 	has_many :results, :through => :rankings 
 
 	# Validations
-	validates_presence_of :id, :from_user_id, :to_user_id, :is_accepted
+	validates_presence_of :from_user_id, :to_user_id
 
 	# Scopes
 	scope :accepted, -> {

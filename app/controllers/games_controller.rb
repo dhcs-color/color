@@ -29,7 +29,7 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(game_params)
-
+    @users = User.alphabetical.all
     respond_to do |format|
       if @game.save
         format.html { redirect_to :controller => :images, :action => :new, :id => @game.id }
