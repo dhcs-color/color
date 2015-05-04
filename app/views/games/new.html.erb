@@ -34,7 +34,7 @@
     <% @users.each do |user| %>
       <% unless user == current_user %>
         <li data-id="<%= user.id %>" data-name="<%= user.name %>">
-          <%= image_tag (user.image + "?height=300&width=300"), :class => 'friend' %>
+          <%= image_tag (user.image + "?height=300&width=300"), :class => 'game-new-choose-friend' %>
         </li>
       <% end %>
     <% end %>
@@ -50,16 +50,4 @@
   -->
 </div>
 
-<script type="text/javascript">
-  $( ".friend" ).click(function() {
-    console.log(this);
-    $( ".friend_chosen" ).attr("src", $(this).attr("src"));
-    var name = $(this).parent().attr('data-name');
-    $( ".friend_name" ).html(name);
-    $( ".friend_name" ).attr("data-id", $(this).parent().attr("data-id"));
-    console.log(name);
-  });
-</script>
-
-<!--
-< %= render 'form_friend' %>-->
+<%= render 'form_friend' %>

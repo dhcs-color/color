@@ -1,9 +1,9 @@
-<%= simple_form_for @game, url: 'games/new' do |f| %>
+<%= simple_form_for @game, url: 'new' do |f| %>
   <fieldset>
     <legend>start a game with a friend who created it, and a friend who has to accept</legend>
     
     <%= f.input :from_user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-    <%= f.input :to_user_id, :as => :hidden, :input_html => { :value => @student.id } %>
+    <%= f.input :to_user_id, :input_html => { :input_html => 'get_friend_id();' } %>
     <%= f.input :is_accepted, :as => :hidden, :input_html => { :value => false } %>
 
     <!-- place submit button -->
