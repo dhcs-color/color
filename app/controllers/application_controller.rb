@@ -8,9 +8,4 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  def facebook_user
-    (session[:token] && session[:uid]) ? FBGraph::Client.new(:client_id => GRAPH_APP_ID, :secret_id => GRAPH_SECRET, :token => session[:token]).selection.me.info! : nil
-  end
-  helper_method :facebook_user
-
 end
