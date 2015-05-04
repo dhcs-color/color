@@ -6,6 +6,31 @@
 
 (<%= @game.image.file.current_path %>)
 
+<script>
+  $(document).ready(function() {
+    $('#colorpicker1').farbtastic('#color1');
+    $('#colorpicker1').addTouch();
+    $('#colorpicker2').farbtastic('#color2');
+    $('#colorpicker2').addTouch();
+    $('#colorpicker3').farbtastic('#color3');
+    $('#colorpicker3').addTouch();
+    $('#colorpicker4').farbtastic('#color4');
+    $('#colorpicker4').addTouch();
+  });   
+</script>
+
+<form>
+  <input type="text" id="color1" name="color1" value="#000000" />
+  <input type="text" id="color2" name="color2" value="#000000" />
+  <input type="text" id="color3" name="color3" value="#000000" />
+  <input type="text" id="color4" name="color4" value="#000000" />
+</form>
+
+<div id="colorpicker1"></div>
+<div id="colorpicker2"></div>
+<div id="colorpicker3"></div>
+<div id="colorpicker4"></div>
+
 <!--< %= render 'form' %>-->
 
 <!-- < %= link_to 'Back', rankings_path %> -->
