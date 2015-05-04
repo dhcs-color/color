@@ -10,18 +10,32 @@ class Ranking < ActiveRecord::Base
 
 	validates_presence_of :user_id, :game_id, :color1, :color2, :color3, :color4
 
+
+# include Colorscore
+# histogram = Histogram.new('#{self.game.image.file.current_path}')
+
+# # This image is 78.8% #7a9ab5:
+# histogram.scores.first # => [0.7884625, RGB [#7a9ab5]]
+# histogram.scores[i].last
+# # This image is closest to pure blue:
+# palette = Palette.from_hex([color1, color2, color3, color4])
+# scores = palette.scores(histogram.scores, 1)
+# scores.first # => [0.16493763694876, RGB [#0000ff]]
+
 	
-	def self.create_result
+	def create_result
+		# histogram = 
+
 		user_colors ||= []
 		user_colors << :color1
 		user_colors << :color2
 		user_colors << :color3
 		user_colors << :color4
 
-		game = Game.find(self.game_id)
 		all_rankings ||= []
 		(4..20).each do |seg_num|
-			array = `color_quant #{game.image.file.current_path} #{seg_num}`.split("\n")
+			array = `color_quant #{self.game.image.file.current_path} #{seg_num}`
+			array.split!("\n")
 			all_rankings << array if array.shift == "success"
 		end
 
