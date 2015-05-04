@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150503092251) do
+ActiveRecord::Schema.define(version: 20150504164838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,10 +33,13 @@ ActiveRecord::Schema.define(version: 20150503092251) do
 
   create_table "rankings", force: :cascade do |t|
     t.integer  "game_id"
-    t.text     "user_colors", default: [],              array: true
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "color1"
+    t.string   "color2"
+    t.string   "color3"
+    t.string   "color4"
   end
 
   create_table "results", force: :cascade do |t|
