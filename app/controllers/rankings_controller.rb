@@ -1,5 +1,5 @@
 class RankingsController < ApplicationController
-#  before_action :set_ranking, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: :new
 
   # GET /rankings/new
   def new

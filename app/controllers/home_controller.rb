@@ -26,7 +26,7 @@ class HomeController < ApplicationController
   # accept game
   def update
     respond_to do |format|
-      if @game.update(game_params)
+      if @game.update_attribute(:is_accepted, true)
         format.html { redirect_to :home }
         format.json { render :show, status: :ok, location: @game }
       else

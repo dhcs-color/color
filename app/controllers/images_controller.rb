@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  before_action :set_game, only: :new
+
   def new
   	@image = Image.new
   end
@@ -8,7 +10,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to url_for('/games/#{@image.game_id}/ranking')}
+        format.html { redirect_to :controller => :results, :action => :new, :id => @game.id }
         #format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new }
@@ -18,7 +20,13 @@ class ImagesController < ApplicationController
   end
 
   private
-    def game_params
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_game
+      @game = Game.find(params[:id])
+    end
+
+    def image_params
       params.require(:image).permit(:game_id, :file)
     end
 

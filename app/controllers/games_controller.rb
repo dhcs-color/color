@@ -10,11 +10,11 @@ class GamesController < ApplicationController
   def show
     respond_to do |format|
       if @game.image.nil?
-        format.html { redirect_to url_for('/games/#{@game.id}/photo') }
+        format.html { redirect_to :controller => :images, :action => :new, :id => @game.id }
       elsif Game.waiting_on_user(current_user).all.include?(@game); # not sure if this line works
-        format.html { redirect_to url_for('/games/#{@game.id}/ranking') }
+        format.html { redirect_to :controller => :rankings, :action => :new, :id => @game.id }
       else
-        format.html { redirect_to url_for('/games/#{@game.id}/score') }
+        format.html { redirect_to :controller => :results, :action => :show, :id => @game.id }
       end
     end
       
@@ -32,7 +32,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       if @game.save
-        format.html { redirect_to url_for("/game/#{@game.id}/photo") }
+        format.html { redirect_to :controller => :images, :action => :new, :id => @game.id }
         #format.json { render :show, status: :created, location: @game }
       else
         format.html { render :new }
