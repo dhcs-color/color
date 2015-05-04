@@ -23,33 +23,43 @@
     </ul>
     <h1>Choose a challenger</h1>
     <figure>
-      <%= image_tag 'placeholder-friend.png' %>
-      <p>Adaline Yu</p>
+      <%= image_tag 'placeholder-you.png', :class => "friend_chosen" %>
+      <p class="friend_name" data-id="none" >Choose a friend</p>
     </figure>
   </nav>
 </section>
 
 <div class="friends">
   <ul class="friends-list large">
-    <% for i in 1..8 %>
-      <li>
-        <a href="">
-          <%= image_tag  'placeholder-friend.png' %>
-        </a>
-      </li>
+    <% @users.each do |user| %>
+      <% unless user == current_user %>
+        <li data-id="<%= user.id %>" data-name="<%= user.name %>">
+          <%= image_tag (user.image + "?height=300&width=300"), :class => 'friend' %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
+  <!--
   <ul class="friends-list small">
     <% for i in 1..88 %>
-      <li>
-        <a href="">
-          <%= image_tag  'placeholder-friend.png' %>
-        </a>
+      <li class="<%= i %>">
+        <%= image_tag  'placeholder-friend.png', :class => 'friend'  %>
       </li>
     <% end %>
   </ul>
+  -->
 </div>
 
-<!-- < % = render 'form' %> -->
+<script type="text/javascript">
+  $( ".friend" ).click(function() {
+    console.log(this);
+    $( ".friend_chosen" ).attr("src", $(this).attr("src"));
+    var name = $(this).parent().attr('data-name');
+    $( ".friend_name" ).html(name);
+    $( ".friend_name" ).attr("data-id", $(this).parent().attr("data-id"));
+    console.log(name);
+  });
+</script>
 
-<!-- < % = link_to 'Back', games_path %> -->
+<!--
+< %= render 'form_friend' %>-->
