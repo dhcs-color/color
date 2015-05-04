@@ -25,6 +25,11 @@ body {
   font-size: 10px;
 }
 
+.invitation-games button {
+  background-color: #fff;
+  padding: 0;
+}
+
 .clear {
   clear: both;
 }
@@ -93,7 +98,7 @@ body.home.index {
     border: 1px solid rgba(0, 0, 0, 0.2);
     text-align: center;
   }
-  button {
+  .new-game, .facebook-sign-in {
     @include single-box-shadow(0, 3px, 5px, 0,
       rgba(0, 0, 0, 0.3));
     @include transition(all 1s);
@@ -131,7 +136,7 @@ body.home.index {
       width: 80%;
       margin: 0 auto 4em;
     }
-    button.new-game {
+    .new-game {
       @include background-image(radial-gradient(100px 100px, 
         darken(#4DA9F0, 7%) 50px, darken(#3599E6, 7%) 100px));
       @include transition(all 1s);
@@ -147,7 +152,7 @@ body.home.index {
   .dashboard {
     margin: 10%;
     text-align: center;
-    button {
+    .new-game {
       @include background-image(radial-gradient(100px 100px, 
         darken(#FF6B8E, 7%) 50px, darken(#F74A73, 7%) 100px));
       @include transition(all 1s);
@@ -158,6 +163,10 @@ body.home.index {
           #FF6B8E 50px, #F74A73 100px));
       }
     }
+    #sign_out {
+      color: red;
+      font-size: 2em;
+    }
     ul {
       list-style-type: none;
       margin: 0 0 1em;
@@ -166,6 +175,10 @@ body.home.index {
       color: rgba(0, 0, 0, 0.6);
       font-size: 3em;
       margin: 1em 0.5em;
+    }
+    h3 {
+      color: rgba(0, 0, 0, 0.5);
+      margin-bottom: 1.5em;
     }
     li {
       @include single-box-shadow(0, 3px, 5px, 0,

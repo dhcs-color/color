@@ -18,6 +18,7 @@
     <ul class="invitation-games">
       <% @not_accepted_games.each do |game| %>
         <li>
+          <%= link_to "#"
           <%= button_to '/games/:id', { :controller => 'home', :action => 'update', :id => game.id }, method: :post do %>
             <div class="friend-image">
               <%= image_tag (game.from_user.image + "?height=200") %>
