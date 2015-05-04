@@ -16,8 +16,8 @@
 
 @import "foundation";
 @import "compass";
-@import "type/ss-social-regular";
-@import "type/ss-standard";
+@import "ss-social-regular";
+@import "ss-standard";
 
 
 body {
@@ -125,7 +125,7 @@ body.home.index {
   }
   .facebook-sign-in {
     i {
-      font-family: 'SSSocial';
+      font-family: 'SSSocialRegular';
     }
   }
   .signin {
