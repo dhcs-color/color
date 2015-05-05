@@ -14,7 +14,7 @@ class RankingsController < ApplicationController
     respond_to do |format|
       if @ranking.save
         format.html { redirect_to :home }
-        result = Result.new(:ranking_id => @ranking.id, :score => 30)
+        result = Result.new(:ranking_id => @ranking.id, :score => rand(10...42))
         if !result.save
           format.json { render json: result.errors, status: :unprocessable_entity }
         end
